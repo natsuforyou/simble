@@ -1,0 +1,21 @@
+apply from: 'libraries.gradle'
+
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    
+    repositories {
+        maven { url 'http://maven.oschina.net/content/groups/public/' }
+        mavenCentral()
+        mavenLocal()
+    }
+
+    task createDirs << {
+        sourceSets*.java.srcDirs*.each {
+            it.mkdirs()
+        }
+        sourceSets*.resources.srcDirs*.each {
+            it.mkdirs()
+        }
+    }
+}
