@@ -1,7 +1,8 @@
-apply from: 'libraries.gradle'
+apply from: 'ext.gradle'
 
 allprojects {
     apply plugin: 'java'
+    apply plugin: 'groovy'
     apply plugin: 'idea'
     
     repositories {
@@ -10,7 +11,7 @@ allprojects {
         mavenLocal()
     }
 
-    task createDirs << {
+    task createDirs {
         sourceSets*.java.srcDirs*.each {
             it.mkdirs()
         }

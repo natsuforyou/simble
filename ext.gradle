@@ -1,0 +1,30 @@
+ext {
+    versions = [
+//            aspectj:                '1.8.8',
+//            poi:                    '3.13',
+            slf4j:                  '1.7.13',
+            spring:                 '4.2.4.RELEASE',
+//            spring_security:        '4.0.3.RELEASE',
+    ];
+
+    libraries = [
+            commons_lang3:          'org.apache.commons:commons-lang3:3.4',
+            commons_collections:    'org.apache.commons:commons-collections4:4.1',
+
+            fastjson:               'com.alibaba:fastjson:1.2.7',
+
+            joda_time:              'joda-time:joda-time:2.9.1',
+
+            junit:                  'junit:junit:4.12',
+
+            slf4j_api:              "org.slf4j:slf4j-api:${versions.slf4j}",
+
+            // mysql connector
+            mysql_connector:        'mysql:mysql-connector-java:5.1.38',
+
+            // spring
+            spring_context:         "org.springframework:spring-context:${versions.spring}",
+            spring_context_support: "org.springframework:spring-context-support:${versions.spring}",
+
+    ]
+}
