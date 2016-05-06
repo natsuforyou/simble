@@ -11,6 +11,9 @@ ext {
             commons_lang3:          'org.apache.commons:commons-lang3:3.4',
             commons_collections:    'org.apache.commons:commons-collections4:4.1',
 
+            dubbo:                  'com.alibaba:dubbo:2.5.3',
+
+
             fastjson:               'com.alibaba:fastjson:1.2.7',
 
             joda_time:              'joda-time:joda-time:2.9.1',
@@ -25,6 +28,11 @@ ext {
             // spring
             spring_context:         "org.springframework:spring-context:${versions.spring}",
             spring_context_support: "org.springframework:spring-context-support:${versions.spring}",
+
+            // zookeeper
+            zookeeper:              'org.apache.zookeeper:zookeeper:3.4.6' ,
+
+            zkclient:				'com.101tec:zkclient:0.8',
 
     ]
 }

@@ -1,5 +1,6 @@
 include 'framework:framework-core'
 include 'framework:framework-logger'
 include 'framework:framework-spring'
+include 'framework:framework-dubbo-support'
 include 'framework:framework-config'
 //include 'framework:framework-base'
