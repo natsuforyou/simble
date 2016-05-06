@@ -18,4 +18,8 @@ public class PropertiesException extends RuntimeException {
     public static PropertiesException instance(String message, Throwable cause) {
         return new PropertiesException(message, cause);
     }
+
+    public static PropertiesException instance(String message) {
+        return instance(message, null);
+    }
 }
