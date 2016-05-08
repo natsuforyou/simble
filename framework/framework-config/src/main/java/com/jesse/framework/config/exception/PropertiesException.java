@@ -2,7 +2,7 @@
  * ©2016 Jesse. some rights reserved.
  */
 
-package com.jesse.framework.core.exception;
+package com.jesse.framework.config.exception;
 
 /**
  * Created by Jesse Qian on 16-5-6.

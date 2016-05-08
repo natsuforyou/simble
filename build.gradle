@@ -1,10 +1,14 @@
 apply from: 'ext.gradle'
 
 allprojects {
+
     apply plugin: 'java'
     apply plugin: 'groovy'
     apply plugin: 'idea'
-    
+
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+
     repositories {
         maven { url 'http://maven.oschina.net/content/groups/public/' }
         mavenCentral()
@@ -18,5 +22,20 @@ allprojects {
         sourceSets*.resources.srcDirs*.each {
             it.mkdirs()
         }
+    }
+
+    // 编译groovy代码时采用 MacRoman
+    tasks.withType(GroovyCompile) {
+        groovyOptions.encoding = 'MacRoman'
+    }
+
+    // 编译JAVADOC文件时采用 UTF-8
+    tasks.withType(Javadoc) {
+        options.encoding = 'UTF-8'
+    }
+
+    // 编译JAVA文件时采用 UTF-8
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
     }
 }

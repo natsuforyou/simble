@@ -1,4 +1,5 @@
 dependencies{
-    compile libraries.spring_context_support
+    compile libraries.zookeeper
+    compile libraries.zkclient
     compile project(":framework:framework-core")
 }

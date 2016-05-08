@@ -2,9 +2,14 @@
  * ©2016 Jesse. some rights reserved.
  */
 
-package com.jesse.framework.core.utils;
+/*
+ * ©2016 Jesse. some rights reserved.
+ */
 
-import com.jesse.framework.core.exception.PropertiesException;
+package com.jesse.framework.config.utils;
+
+import com.jesse.framework.config.exception.PropertiesException;
+import com.jesse.framework.spring.context.SpringApplicationContext;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -45,11 +50,7 @@ public class PropertiesUtil {
             logger.error("指定类资源路径为空");
             throw PropertiesException.instance("指定类资源路径为空");
         }
-
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext();
-
-        Resource resource = context.getResource(classPath);
-
+        Resource resource = SpringApplicationContext.getContext().getResource(classPath);
         try (InputStream inputStream = resource.getInputStream()) {
             return getProperties(inputStream);
         } catch (IOException e) {

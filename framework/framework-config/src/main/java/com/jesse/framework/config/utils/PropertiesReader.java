@@ -2,9 +2,8 @@
  * ©2016 Jesse. some rights reserved.
  */
 
-package com.jesse.framework.config.util;
+package com.jesse.framework.config.utils;
 
-import com.jesse.framework.core.utils.PropertiesUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,9 +21,9 @@ public class PropertiesReader {
         return PropertiesUtil.getProperties(path).getProperty(key);
     }
 
-    public static String getValue(InputStream inputStream, String key) {
-        return PropertiesUtil.getProperties(inputStream).getProperty(key);
-    }
+//    public static String getValue(InputStream inputStream, String key) {
+//        return PropertiesUtil.getProperties(inputStream).getProperty(key);
+//    }
 
     public static String getValue(byte[] buf, String key) {
         return PropertiesUtil.getProperties(buf).getProperty(key);

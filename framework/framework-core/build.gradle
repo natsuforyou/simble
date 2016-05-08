@@ -1,5 +1,5 @@
 dependencies{
-    compile project(":framework:framework-logger")
-    compile project(":framework:framework-spring")
     compile libraries.commons_lang3
+    compile libraries.commons_collections
+    compile libraries.slf4j_api
 }
