@@ -1,6 +1,7 @@
 dependencies{
-    compile libraries.commons_lang3
     compile libraries.commons_collections
+    compile libraries.commons_lang3
+    compile libraries.commons_io
     compile libraries.joda_time
     compile libraries.slf4j_api
 }

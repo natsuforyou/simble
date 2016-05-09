@@ -26,6 +26,10 @@ public class BaseConfigReader {
         return Boolean.TRUE.toString().equalsIgnoreCase(local);
     }
 
+    public static String getAppName() {
+        return PropertiesReader.getPropertyFromResource(ConfigPathResolver.getAppNamePath(), "app.name");
+    }
+
     public static String getZkConnectString(){
         return PropertiesReader.getProperty(ConfigPathResolver.getZkServiceConfPath(), "connectionString");
     }
