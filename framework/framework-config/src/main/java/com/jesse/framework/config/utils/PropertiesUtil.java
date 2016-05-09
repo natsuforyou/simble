@@ -14,7 +14,6 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.Resource;
 
 import java.io.*;
@@ -26,9 +25,9 @@ import java.util.Properties;
  */
 public class PropertiesUtil {
 
-    private static Logger logger = LoggerFactory.getLogger(PropertiesUtil.class);
+    private static final Logger logger = LoggerFactory.getLogger(PropertiesUtil.class);
 
-    public static Properties getProperties(String path) {
+    public static Properties getProperties(final String path) {
         if (StringUtils.isBlank(path)) {
             logger.error("指定文件系统路径为空");
             throw PropertiesException.instance("指定文件系统路径为空");
@@ -45,7 +44,7 @@ public class PropertiesUtil {
     }
 
 
-    public static Properties getPropertiesFromResource(String classPath) {
+    public static Properties getPropertiesFromResource(final String classPath) {
         if (StringUtils.isBlank(classPath)) {
             logger.error("指定类资源路径为空");
             throw PropertiesException.instance("指定类资源路径为空");
@@ -59,7 +58,7 @@ public class PropertiesUtil {
         }
     }
 
-    public static Properties getProperties(InputStream inputStream) {
+    public static Properties getProperties(final InputStream inputStream) {
         if (null == inputStream) {
             logger.error("指定文件输入流为空");
             throw PropertiesException.instance("指定文件输入流为空");
@@ -75,7 +74,7 @@ public class PropertiesUtil {
         }
     }
 
-    public static Properties getProperties(byte[] buf) {
+    public static Properties getProperties(final byte[] buf) {
         if (ArrayUtils.isEmpty(buf)) {
             logger.error("指定字节数组为空");
             throw PropertiesException.instance("指定字节数组为空");

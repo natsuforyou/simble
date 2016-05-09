@@ -17,15 +17,19 @@ import java.io.InputStream;
 public class PropertiesReader {
     private static Logger logger = LoggerFactory.getLogger(PropertiesReader.class);
 
-    public static String getValue(String path, String key) {
+    public static String getProperty(String path, String key) {
         return PropertiesUtil.getProperties(path).getProperty(key);
     }
 
-//    public static String getValue(InputStream inputStream, String key) {
-//        return PropertiesUtil.getProperties(inputStream).getProperty(key);
-//    }
+    public static String getProperty(InputStream inputStream, String key) {
+        return PropertiesUtil.getProperties(inputStream).getProperty(key);
+    }
 
-    public static String getValue(byte[] buf, String key) {
+    public static String getPropertyFromResource(String classpath, String key) {
+        return PropertiesUtil.getPropertiesFromResource(classpath).getProperty(key);
+    }
+
+    public static String getProperty(byte[] buf, String key) {
         return PropertiesUtil.getProperties(buf).getProperty(key);
     }
 }

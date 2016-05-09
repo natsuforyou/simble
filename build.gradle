@@ -15,6 +15,11 @@ allprojects {
         mavenLocal()
     }
 
+    dependencies {
+        testCompile libraries.junit
+        testCompile libraries.spring_test
+    }
+
     task createDirs {
         sourceSets*.java.srcDirs*.each {
             it.mkdirs()
