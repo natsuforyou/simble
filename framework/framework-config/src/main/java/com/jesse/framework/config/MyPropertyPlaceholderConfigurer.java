@@ -6,26 +6,25 @@ package com.jesse.framework.config;
 
 import com.jesse.framework.config.enums.ConfScope;
 import com.jesse.framework.config.exception.PropertiesException;
-import com.jesse.framework.config.utils.BaseConfigReader;
-import com.jesse.framework.config.utils.PropertiesUtil;
+import com.jesse.framework.config.utils.BasicConfReader;
+import com.jesse.framework.config.utils.PropertiesReader;
 import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.collections4.ListUtils;
-import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 
 import java.util.*;
-import java.util.stream.Stream;
 
 /**
  * Created by Jesse Qian on 16-5-7.
+ * customer PropertyPlaceholderConfigurer
+ * {@link PropertyPlaceholderConfigurer}
  */
 public class MyPropertyPlaceholderConfigurer extends PropertyPlaceholderConfigurer {
 
     private static final Map<String, String> GLOBAL_PLACEHOLDERS = new HashMap<>();
 
-    static{
-        GLOBAL_PLACEHOLDERS.put("APP_NAME", BaseConfigReader.getAppName());
-        GLOBAL_PLACEHOLDERS.put("IP", BaseConfigReader.getIp());
+    static {
+        GLOBAL_PLACEHOLDERS.put("APP_NAME", BasicConfReader.getAppName());
+        GLOBAL_PLACEHOLDERS.put("IP", PropertiesReader.getIp());
     }
 
     public void setPropertiesFiles(List<String> propertiesFiles) {

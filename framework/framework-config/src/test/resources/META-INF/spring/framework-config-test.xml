@@ -11,4 +11,13 @@
 
     <!--<bean id="springApplicationContextProvider" class="com.jesse.framework.spring.context.SpringApplicationContextProvider"/>-->
     <context:component-scan base-package="com.jesse.framework.spring.context"/>
+
+    <bean id="myPropertyPlaceholderConfigurer" class="com.jesse.framework.config.MyPropertyPlaceholderConfigurer">
+        <property name="propertiesFiles">
+            <list>
+                <value>G:properties/mysql-jdbc.properties</value>
+                <value>P:properties/mysql-jdbc.properties</value>
+            </list>
+        </property>
+    </bean>
 </beans>

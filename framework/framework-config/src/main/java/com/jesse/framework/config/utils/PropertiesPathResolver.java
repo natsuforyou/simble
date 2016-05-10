@@ -17,20 +17,20 @@ import java.io.File;
 /**
  * Created by Jesse Qian on 16-5-7.
  */
-public class ConfigPathResolver {
+public class PropertiesPathResolver {
 
-    private static final Logger logger = LoggerFactory.getLogger(ConfigPathResolver.class);
+    private static final Logger logger = LoggerFactory.getLogger(PropertiesPathResolver.class);
 
     private static String CONF_PATH;
     private static String IP_PATH;
     private static final String GLOBAL = "global";
-    private static final String BASE_PATH = "properties/base.properties";
+    private static final String BASE_PATH = "properties/basicConfig.properties";
     private static final String APP_NAME_PATH = "META-INF/app.properties";
     private static final String ZK_SERVICE_CONF_PATH = "properties/zkService.properties";
 
     static {
-        CONF_PATH = BaseConfigReader.getConfPath();
-        IP_PATH = BaseConfigReader.getIpPath();
+        CONF_PATH = BasicConfReader.getConfPath();
+        IP_PATH = BasicConfReader.getIpPath();
         logger.info("初始化基础配置：[CONF_PATH:{}], [IP_PATH:{}]", CONF_PATH, IP_PATH);
     }
 
@@ -59,7 +59,7 @@ public class ConfigPathResolver {
             throw PropertiesException.instance("");
         }
         if (location == ConfLocation.ZK) {
-            return BaseConfigReader.getZkConfPath();
+            return PropertiesReader.getZkConfPath();
         } else {
             return getConfPath();
         }
@@ -76,11 +76,11 @@ public class ConfigPathResolver {
         String appName;
         String confPath = null;
         switch (scope) {
-            case GLOBAL:
+            case G:
                 confPath = getBaseConfPath(location) + separator + GLOBAL + separator + path;
                 break;
-            case PROJECT:
-                appName = BaseConfigReader.getAppName();
+            case P:
+                appName = BasicConfReader.getAppName();
                 confPath = getBaseConfPath(location) + separator + appName + separator + path;
                 break;
         }

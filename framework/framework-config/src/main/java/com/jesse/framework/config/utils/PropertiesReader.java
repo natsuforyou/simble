@@ -4,21 +4,16 @@
 
 package com.jesse.framework.config.utils;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.InputStream;
 
 /**
- * Created by Jesse Qian on 16-5-6.
- * {@link PropertiesUtil}
- * 配置读取工具类
+ * Created by Jesse Qian on 16-5-10.
+ * read properties by key
  */
 public class PropertiesReader {
-    private static Logger logger = LoggerFactory.getLogger(PropertiesReader.class);
 
-    public static String getProperty(String path, String key) {
-        return PropertiesUtil.getProperties(path).getProperty(key);
+    public static String getProperty(String filePath, String key) {
+        return PropertiesUtil.getProperties(filePath).getProperty(key);
     }
 
     public static String getProperty(InputStream inputStream, String key) {
@@ -31,5 +26,22 @@ public class PropertiesReader {
 
     public static String getProperty(byte[] buf, String key) {
         return PropertiesUtil.getProperties(buf).getProperty(key);
+    }
+
+    public static String getIp() {
+        return getProperty(PropertiesPathResolver.getIpPath(), "ip");
+    }
+
+    public static boolean isLocal() {
+        String local = getProperty(PropertiesPathResolver.getIpPath(), "local");
+        return Boolean.TRUE.toString().equalsIgnoreCase(local);
+    }
+
+    public static String getZkConnectString() {
+        return getProperty(PropertiesPathResolver.getZkServiceConfPath(), "connectionString");
+    }
+
+    public static String getZkConfPath() {
+        return getProperty(PropertiesPathResolver.getZkServiceConfPath(), "zkBasePath");
     }
 }

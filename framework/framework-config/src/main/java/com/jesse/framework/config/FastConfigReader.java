@@ -7,12 +7,11 @@ package com.jesse.framework.config;
 import com.jesse.framework.config.enums.ConfLocation;
 import com.jesse.framework.config.enums.ConfScope;
 import com.jesse.framework.config.exception.PropertiesException;
-import com.jesse.framework.config.utils.BaseConfigReader;
-import com.jesse.framework.config.utils.ConfigPathResolver;
+import com.jesse.framework.config.utils.PropertiesReader;
+import com.jesse.framework.config.utils.PropertiesPathResolver;
 import com.jesse.framework.config.utils.PropertiesUtil;
 import org.I0Itec.zkclient.IZkStateListener;
 import org.I0Itec.zkclient.ZkClient;
-import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.zookeeper.Watcher;
@@ -28,6 +27,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by Jesse Qian on 16-5-7.
+ * fast config reader try from zk
  */
 public class FastConfigReader {
 
@@ -54,14 +54,16 @@ public class FastConfigReader {
     //上次丢失连接, 尝试连接之后， 重新尝试从zk读最新文件的间隔时间（秒）
     private static final int retryZkConnectIntervalSec = 30;
 
-    private static class FastConfigReaderHolder{
+    private static class FastConfigReaderHolder {
+
         static final FastConfigReader INSTANCE = new FastConfigReader();
+
         static {
             INSTANCE.init();
         }
     }
 
-    public static FastConfigReader getInstance() {
+    private static FastConfigReader getInstance() {
         return FastConfigReaderHolder.INSTANCE;
     }
 
@@ -71,42 +73,42 @@ public class FastConfigReader {
         }
 
 //        try {
-            lastTryConnectTime = new DateTime();
-            zkClient = new ZkClient(connectionString, SESSION_TIMEOUT, CONNECTION_TIMEOUT);
-            keeperState = Watcher.Event.KeeperState.SyncConnected;
-            zkClient.subscribeStateChanges(new IZkStateListener() {
-                @Override
-                public void handleStateChanged(Watcher.Event.KeeperState state) throws Exception {
-                    if (state == Watcher.Event.KeeperState.AuthFailed) {
-                        logger.error("");
-                    }
-                    if (state != Watcher.Event.KeeperState.SaslAuthenticated) {
-                        keeperState = state;
-                    }
+        lastTryConnectTime = new DateTime();
+        zkClient = new ZkClient(connectionString, SESSION_TIMEOUT, CONNECTION_TIMEOUT);
+        keeperState = Watcher.Event.KeeperState.SyncConnected;
+        zkClient.subscribeStateChanges(new IZkStateListener() {
+            @Override
+            public void handleStateChanged(Watcher.Event.KeeperState state) throws Exception {
+                if (state == Watcher.Event.KeeperState.AuthFailed) {
+                    logger.error("");
                 }
-
-                @Override
-                public void handleNewSession() throws Exception {
-
+                if (state != Watcher.Event.KeeperState.SaslAuthenticated) {
+                    keeperState = state;
                 }
+            }
 
-                @Override
-                public void handleSessionEstablishmentError(Throwable error) throws Exception {
+            @Override
+            public void handleNewSession() throws Exception {
 
-                }
-            });
+            }
+
+            @Override
+            public void handleSessionEstablishmentError(Throwable error) throws Exception {
+
+            }
+        });
 //        }
     }
 
     private void init() {
-        connectionString = StringUtils.trimToNull(BaseConfigReader.getZkConnectString());
+        connectionString = StringUtils.trimToNull(PropertiesReader.getZkConnectString());
 
         if (StringUtils.isEmpty(connectionString)) {
             logger.error("connectionString should no be empty");
             return;
         }
 
-        onlyLocal = BaseConfigReader.isLocal();
+        onlyLocal = PropertiesReader.isLocal();
         localInfoInitialized = true;
 
         connectZkIfNeed();
@@ -122,7 +124,7 @@ public class FastConfigReader {
             logger.error("localInfoInitialized=false");
             return;
         }
-        if (null ==zkClient || needReconnect()) {
+        if (null == zkClient || needReconnect()) {
             if (lastTryConnectTime.plusSeconds(retryZkConnectIntervalSec).isBeforeNow()) {
                 connectZkIfNeed();
             }
@@ -134,12 +136,12 @@ public class FastConfigReader {
             throw PropertiesException.instance("");
         }
         if (onlyLocal) {
-            String confPath = ConfigPathResolver.getConfPath(path, scope, ConfLocation.FS);
+            String confPath = PropertiesPathResolver.getConfPath(path, scope, ConfLocation.FS);
             return getDataFromLocal(confPath);
         }
 
         ensureZkClient();
-        String confPath = ConfigPathResolver.getConfPath(path, scope, ConfLocation.ZK);
+        String confPath = PropertiesPathResolver.getConfPath(path, scope, ConfLocation.ZK);
         if (keeperState == Watcher.Event.KeeperState.ConnectedReadOnly || keeperState == Watcher.Event.KeeperState.SyncConnected) {
             byte[] data = zkClient.readData(confPath);
             cache.put(confPath, data);
@@ -167,7 +169,7 @@ public class FastConfigReader {
         }
     }
 
-    public static Properties getProperties(String path, ConfScope scope) {
+    static Properties getProperties(String path, ConfScope scope) {
         byte[] data = getInstance().getData(path, scope);
         return PropertiesUtil.getProperties(data);
     }

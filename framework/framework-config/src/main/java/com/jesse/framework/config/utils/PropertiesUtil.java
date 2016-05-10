@@ -21,18 +21,18 @@ import java.util.Properties;
 
 /**
  * Created by Jesse Qian on 16-5-6.
- * 配置文件读取工具类
+ * load properties from filePath, classpath, inputStream and byte[]
  */
 public class PropertiesUtil {
 
     private static final Logger logger = LoggerFactory.getLogger(PropertiesUtil.class);
 
-    public static Properties getProperties(final String path) {
-        if (StringUtils.isBlank(path)) {
+    public static Properties getProperties(final String filePath) {
+        if (StringUtils.isBlank(filePath)) {
             logger.error("指定文件系统路径为空");
             throw PropertiesException.instance("指定文件系统路径为空");
         }
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(path), "UTF-8"))) {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), "UTF-8"))) {
             Properties properties = new Properties();
             properties.load(reader);
             logger.info("读取指定文件系统路径配置成功", properties);
@@ -44,12 +44,12 @@ public class PropertiesUtil {
     }
 
 
-    public static Properties getPropertiesFromResource(final String classPath) {
-        if (StringUtils.isBlank(classPath)) {
+    public static Properties getPropertiesFromResource(final String classpath) {
+        if (StringUtils.isBlank(classpath)) {
             logger.error("指定类资源路径为空");
             throw PropertiesException.instance("指定类资源路径为空");
         }
-        Resource resource = SpringApplicationContext.getContext().getResource(classPath);
+        Resource resource = SpringApplicationContext.getContext().getResource(classpath);
         try (InputStream inputStream = resource.getInputStream()) {
             return getProperties(inputStream);
         } catch (IOException e) {

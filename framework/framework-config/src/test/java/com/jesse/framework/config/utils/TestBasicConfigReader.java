@@ -18,20 +18,20 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:META-INF/spring/framework-config-test.xml")
-public class TestBaseConfigReader {
+public class TestBasicConfigReader {
 
     @Test
     public void getConfPathTest() {
-        System.out.println(BaseConfigReader.getConfPath());
+        System.out.println(BasicConfReader.getConfPath());
     }
 
     @Test
     public void getIpPathTest() {
-        System.out.println(BaseConfigReader.getIpPath());
+        System.out.println(BasicConfReader.getIpPath());
     }
 
     @Test
-    public void getIpTest() {
-        System.out.println(BaseConfigReader.getIp());
+    public void getAppNameTest() {
+        System.out.println(BasicConfReader.getAppName());
     }
 }
