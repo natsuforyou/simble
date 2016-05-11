@@ -22,16 +22,16 @@ public class TestBasicConfigReader {
 
     @Test
     public void getConfPathTest() {
-        System.out.println(BasicConfReader.getConfPath());
+        System.out.println(BasicConfRegistry.getConfPrefix());
     }
 
     @Test
     public void getIpPathTest() {
-        System.out.println(BasicConfReader.getIpPath());
+        System.out.println(BasicConfRegistry.getIpPath());
     }
 
     @Test
     public void getAppNameTest() {
-        System.out.println(BasicConfReader.getAppName());
+        System.out.println(BasicConfRegistry.getAppName());
     }
 }

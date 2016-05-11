@@ -6,8 +6,7 @@ package com.jesse.framework.config;
 
 import com.jesse.framework.config.enums.ConfScope;
 import com.jesse.framework.config.exception.PropertiesException;
-import com.jesse.framework.config.utils.BasicConfReader;
-import com.jesse.framework.config.utils.PropertiesReader;
+import com.jesse.framework.config.utils.BasicConfRegistry;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 
@@ -23,13 +22,13 @@ public class MyPropertyPlaceholderConfigurer extends PropertyPlaceholderConfigur
     private static final Map<String, String> GLOBAL_PLACEHOLDERS = new HashMap<>();
 
     static {
-        GLOBAL_PLACEHOLDERS.put("APP_NAME", BasicConfReader.getAppName());
-        GLOBAL_PLACEHOLDERS.put("IP", PropertiesReader.getIp());
+        GLOBAL_PLACEHOLDERS.put("APP_NAME", BasicConfRegistry.getAppName());
+        GLOBAL_PLACEHOLDERS.put("IP", BasicConfRegistry.getIp());
     }
 
     public void setPropertiesFiles(List<String> propertiesFiles) {
         if (CollectionUtils.isEmpty(propertiesFiles)) {
-            throw PropertiesException.instance("必须设置文件路径列表");
+            throw PropertiesException.instance("must set properties files");
         }
         List<Properties> propertiesArray = new ArrayList<>();
         propertiesFiles.stream().forEach(propertiesFile -> {

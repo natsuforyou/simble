@@ -18,6 +18,6 @@ public class TestConfigPathResolver {
 
     @Test
     public void getIpPathTest() {
-        System.out.println(PropertiesPathResolver.getIpPath());
+        System.out.println(PathResolver.getSolvedIpPath());
     }
 }

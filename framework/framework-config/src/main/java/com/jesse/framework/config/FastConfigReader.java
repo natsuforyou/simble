@@ -7,8 +7,8 @@ package com.jesse.framework.config;
 import com.jesse.framework.config.enums.ConfLocation;
 import com.jesse.framework.config.enums.ConfScope;
 import com.jesse.framework.config.exception.PropertiesException;
-import com.jesse.framework.config.utils.PropertiesReader;
-import com.jesse.framework.config.utils.PropertiesPathResolver;
+import com.jesse.framework.config.utils.BasicConfRegistry;
+import com.jesse.framework.config.utils.PathResolver;
 import com.jesse.framework.config.utils.PropertiesUtil;
 import org.I0Itec.zkclient.IZkStateListener;
 import org.I0Itec.zkclient.ZkClient;
@@ -51,7 +51,6 @@ public class FastConfigReader {
 
     private Map<String, byte[]> cache = new ConcurrentHashMap<>();
 
-    //上次丢失连接, 尝试连接之后， 重新尝试从zk读最新文件的间隔时间（秒）
     private static final int retryZkConnectIntervalSec = 30;
 
     private static class FastConfigReaderHolder {
@@ -72,7 +71,6 @@ public class FastConfigReader {
             return;
         }
 
-//        try {
         lastTryConnectTime = new DateTime();
         zkClient = new ZkClient(connectionString, SESSION_TIMEOUT, CONNECTION_TIMEOUT);
         keeperState = Watcher.Event.KeeperState.SyncConnected;
@@ -97,18 +95,17 @@ public class FastConfigReader {
 
             }
         });
-//        }
     }
 
     private void init() {
-        connectionString = StringUtils.trimToNull(PropertiesReader.getZkConnectString());
+        connectionString = StringUtils.trimToNull(BasicConfRegistry.getZkConnectString());
 
         if (StringUtils.isEmpty(connectionString)) {
             logger.error("connectionString should no be empty");
             return;
         }
 
-        onlyLocal = PropertiesReader.isLocal();
+        onlyLocal = BasicConfRegistry.isLocal();
         localInfoInitialized = true;
 
         connectZkIfNeed();
@@ -136,12 +133,12 @@ public class FastConfigReader {
             throw PropertiesException.instance("");
         }
         if (onlyLocal) {
-            String confPath = PropertiesPathResolver.getConfPath(path, scope, ConfLocation.FS);
+            String confPath = PathResolver.getSolvedConfPath(path, scope, ConfLocation.FS);
             return getDataFromLocal(confPath);
         }
 
         ensureZkClient();
-        String confPath = PropertiesPathResolver.getConfPath(path, scope, ConfLocation.ZK);
+        String confPath = PathResolver.getSolvedConfPath(path, scope, ConfLocation.ZK);
         if (keeperState == Watcher.Event.KeeperState.ConnectedReadOnly || keeperState == Watcher.Event.KeeperState.SyncConnected) {
             byte[] data = zkClient.readData(confPath);
             cache.put(confPath, data);
