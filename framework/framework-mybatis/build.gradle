@@ -1,0 +1,8 @@
+dependencies{
+    compile libraries.mysql_connector
+    compile libraries.mybatis
+    compile libraries.mybatis_spring
+    compile libraries.mybatis_generator
+    compile libraries.c3p0
+    compile project(":framework:framework-core")
+}

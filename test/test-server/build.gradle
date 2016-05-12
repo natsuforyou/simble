@@ -1,0 +1,4 @@
+dependencies{
+    compile project(":test:test-service")
+    compile project(":test:test-api")
+}
