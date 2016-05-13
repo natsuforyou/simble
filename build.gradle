@@ -2,6 +2,8 @@ apply from: 'ext.gradle'
 
 allprojects {
 
+    buildDir = 'target'
+
     apply plugin: 'java'
     apply plugin: 'groovy'
     apply plugin: 'idea'

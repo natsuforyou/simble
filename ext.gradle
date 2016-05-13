@@ -30,7 +30,7 @@ ext {
             mybatis:                'org.mybatis:mybatis:3.2.5',
             mybatis_ehcache:        'org.mybatis:mybatis-ehcache:1.0.0',
             mybatis_spring:         'org.mybatis:mybatis-spring:1.2.2',
-            mybatis_generator:      'org.generator:mybatis-generator-core:1.3.2',
+            mybatis_generator:      'org.mybatis.generator:mybatis-generator-core:1.3.2',
             mybatis_generator_plugins: 'net.javaforge.generator:mybatis-generator-plugins:1.0.0',
             // mysql connector
             mysql_connector:        'mysql:mysql-connector-java:5.1.38',
