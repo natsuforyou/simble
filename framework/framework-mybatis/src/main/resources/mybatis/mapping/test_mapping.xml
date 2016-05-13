@@ -3,10 +3,6 @@
   ~ ©2016 Jesse. some rights reserved.
   -->
 
-<!--
-  ~ ©2016 Jesse. some rights reserved.
-  -->
-
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
 <generatorConfiguration>
@@ -18,10 +14,10 @@
 
         <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
-        <plugin type="com.jesse.framework.mybatis.plugins.PaginationPlugin"/>
+        <plugin type="com.jesse.framework.mybatis.plugins.PaginationPlugin4Mysql"/>
         <plugin type="com.jesse.framework.mybatis.plugins.DBCommentPlugin"/>
-        <!--<plugin type="org.mybatis.generator.plugins.GeneratedXmlFileOverwritePlugin"/>-->
-        <!--<plugin type="org.mybatis.generator.plugins.GenerateMySQLPessimisticLockPlugin"/>-->
+        <plugin type="com.jesse.framework.mybatis.plugins.XmlFileOverwritePlugin"/>
+        <plugin type="com.jesse.framework.mybatis.plugins.PessimisticLockPluginMysql"/>
 
         <commentGenerator>
             <!-- 是否取消注释 -->

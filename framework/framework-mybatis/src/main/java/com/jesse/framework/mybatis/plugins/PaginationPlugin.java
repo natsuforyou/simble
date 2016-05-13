@@ -4,7 +4,7 @@
 
 package com.jesse.framework.mybatis.plugins;
 
-import org.mybatis.generator.api.CommentGenerator;
+import org.apache.commons.lang3.StringUtils;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.PluginAdapter;
 import org.mybatis.generator.api.dom.java.*;
@@ -12,70 +12,89 @@ import org.mybatis.generator.api.dom.xml.Attribute;
 import org.mybatis.generator.api.dom.xml.TextElement;
 import org.mybatis.generator.api.dom.xml.XmlElement;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by Jesse Qian on 16-5-12.
+ * Created by Jesse Qian on 16-5-13.
  */
 public class PaginationPlugin extends PluginAdapter {
+    private final static String OFFSET = "offset";
+    private final static String LIMIT = "limit";
 
     @Override
-    public boolean modelExampleClassGenerated(TopLevelClass topLevelClass,
-                                              IntrospectedTable introspectedTable) {
-        // add field, getter, setter for limit clause
-        addLimit(topLevelClass, introspectedTable, "limitStart");
-        addLimit(topLevelClass, introspectedTable, "limitEnd");
-        return super.modelExampleClassGenerated(topLevelClass,
-                introspectedTable);
-    }
-
-    @Override
-    public boolean sqlMapSelectByExampleWithoutBLOBsElementGenerated(
-            XmlElement element, IntrospectedTable introspectedTable) {
-        XmlElement isParameterPresenteElemen = (XmlElement) element
-                .getElements().get(element.getElements().size() - 1);
-        XmlElement isNotNullElement = new XmlElement("if"); //$NON-NLS-1$
-        isNotNullElement.addAttribute(new Attribute("test", "limitStart >= 0")); //$NON-NLS-1$ //$NON-NLS-2$
-        isNotNullElement.addElement(new TextElement(
-                "limit ${limitStart} , ${limitEnd}"));
-        isParameterPresenteElemen.addElement(isNotNullElement);
-        return super.sqlMapUpdateByExampleWithoutBLOBsElementGenerated(element,
-                introspectedTable);
-    }
-
-    private void addLimit(TopLevelClass topLevelClass,
-                          IntrospectedTable introspectedTable, String name) {
-        CommentGenerator commentGenerator = context.getCommentGenerator();
-        Field field = new Field();
-        field.setVisibility(JavaVisibility.PROTECTED);
-        field.setType(FullyQualifiedJavaType.getIntInstance());
-        field.setName(name);
-        field.setInitializationString("-1");
-        commentGenerator.addFieldComment(field, introspectedTable);
-        topLevelClass.addField(field);
-        char c = name.charAt(0);
-        String camel = Character.toUpperCase(c) + name.substring(1);
-        Method method = new Method();
-        method.setVisibility(JavaVisibility.PUBLIC);
-        method.setName("set" + camel);
-        method.addParameter(new Parameter(FullyQualifiedJavaType
-                .getIntInstance(), name));
-        method.addBodyLine("this." + name + "=" + name + ";");
-        commentGenerator.addGeneralMethodComment(method, introspectedTable);
-        topLevelClass.addMethod(method);
-        method = new Method();
-        method.setVisibility(JavaVisibility.PUBLIC);
-        method.setReturnType(FullyQualifiedJavaType.getIntInstance());
-        method.setName("get" + camel);
-        method.addBodyLine("return " + name + ";");
-        commentGenerator.addGeneralMethodComment(method, introspectedTable);
-        topLevelClass.addMethod(method);
-    }
-
-    /**
-     * This plugin is always valid - no properties are required
-     */
     public boolean validate(List<String> warnings) {
         return true;
+    }
+
+    @Override
+    public boolean sqlMapSelectByExampleWithoutBLOBsElementGenerated(XmlElement element, IntrospectedTable introspectedTable) {
+        addElements(element);
+        return super.sqlMapSelectByExampleWithoutBLOBsElementGenerated(element, introspectedTable);
+    }
+
+    @Override
+    public boolean sqlMapSelectByExampleWithBLOBsElementGenerated(XmlElement element, IntrospectedTable introspectedTable) {
+        addElements(element);
+        return super.sqlMapExampleWhereClauseElementGenerated(element, introspectedTable);
+    }
+
+    private void addElements(XmlElement parentElement) {
+        parentElement.addElement(createElements(OFFSET));
+        parentElement.addElement(createElements(LIMIT));
+    }
+
+    private XmlElement createElements(String attribute) {
+        XmlElement element = new XmlElement("if");
+        element.addAttribute(new Attribute("test", attribute + " gt 0"));
+        element.addElement(new TextElement(attribute + " #{" + attribute + "}"));
+        return element;
+    }
+
+    @Override
+    public boolean modelExampleClassGenerated(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
+        String[] offsetJavaDoc = new String[] { "@param " + OFFSET + " ", " e.g. " + OFFSET + " = 5 " + LIMIT + " = 10", "  " };
+        String[] limitJavaDoc = new String[] { "@param " + LIMIT + " ", " e.g. " + OFFSET + " = 5 " + LIMIT + " = 10", " " };
+        initField(topLevelClass, OFFSET, FullyQualifiedJavaType.getIntInstance(), offsetJavaDoc);
+        initField(topLevelClass, LIMIT, FullyQualifiedJavaType.getIntInstance(), limitJavaDoc);
+        return super.modelExampleClassGenerated(topLevelClass, introspectedTable);
+    }
+
+    private void initField(TopLevelClass topLevelClass, String fieldName, FullyQualifiedJavaType type, String... javaDocLines) {
+        topLevelClass.addField(createField(fieldName, type));
+        List<String> setLines = Arrays.asList("this." + fieldName + " = " + fieldName + ";");
+        List<String> getLines = Arrays.asList("return " + fieldName + ";");
+        Method setMethod = createMethod("set" + StringUtils.capitalize(fieldName), null, new Parameter(type, fieldName), setLines, javaDocLines);
+        Method getMethod = createMethod("get" + StringUtils.capitalize(fieldName), type, null, getLines);
+        topLevelClass.addMethod(setMethod);
+        topLevelClass.addMethod(getMethod);
+    }
+
+    private Field createField(String name, FullyQualifiedJavaType type) {
+        Field field = new Field(name, type);
+        field.setVisibility(JavaVisibility.PRIVATE);
+        return field;
+    }
+
+    private Method createMethod(String name, FullyQualifiedJavaType returnType, Parameter parameter, List<String> lines, String... javaDocLines) {
+        Method method = new Method(name);
+        method.setVisibility(JavaVisibility.PUBLIC);
+        if (returnType != null)
+            method.setReturnType(returnType);
+        if (parameter != null)
+            method.addParameter(parameter);
+        if (lines != null)
+            method.addBodyLines(lines);
+        if (javaDocLines != null)
+            addMethodComment(method, javaDocLines);
+        return method;
+    }
+
+    private void addMethodComment(Method method, String... javaDocLines) {
+        method.addJavaDocLine("/**");
+        if (javaDocLines != null)
+            for (String javaDocLine : javaDocLines)
+                method.addJavaDocLine(" * " + javaDocLine);
+        method.addJavaDocLine(" */");
     }
 }

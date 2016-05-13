@@ -13,32 +13,32 @@ public class User implements Serializable {
     private String id;
 
     /**
-     *
+     *用户名
      */
     private String username;
 
     /**
-     *
+     *密码
      */
     private String password;
 
     /**
-     *
+     *姓名
      */
     private String realName;
 
     /**
-     *
+     *状态
      */
     private String status;
 
     /**
-     *
+     *创建时间
      */
     private Date createTime;
 
     /**
-     *
+     *更新时间
      */
     private Date updateTime;
 
@@ -59,84 +59,84 @@ public class User implements Serializable {
     }
 
     /**
-     *
+     *用户名
      */
     public String getUsername() {
         return username;
     }
 
     /**
-     *
+     *用户名
      */
     public void setUsername(String username) {
         this.username = username == null ? null : username.trim();
     }
 
     /**
-     *
+     *密码
      */
     public String getPassword() {
         return password;
     }
 
     /**
-     *
+     *密码
      */
     public void setPassword(String password) {
         this.password = password == null ? null : password.trim();
     }
 
     /**
-     *
+     *姓名
      */
     public String getRealName() {
         return realName;
     }
 
     /**
-     *
+     *姓名
      */
     public void setRealName(String realName) {
         this.realName = realName == null ? null : realName.trim();
     }
 
     /**
-     *
+     *状态
      */
     public String getStatus() {
         return status;
     }
 
     /**
-     *
+     *状态
      */
     public void setStatus(String status) {
         this.status = status == null ? null : status.trim();
     }
 
     /**
-     *
+     *创建时间
      */
     public Date getCreateTime() {
         return createTime;
     }
 
     /**
-     *
+     *创建时间
      */
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
     /**
-     *
+     *更新时间
      */
     public Date getUpdateTime() {
         return updateTime;
     }
 
     /**
-     *
+     *更新时间
      */
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;

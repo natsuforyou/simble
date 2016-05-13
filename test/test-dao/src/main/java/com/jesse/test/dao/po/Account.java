@@ -8,116 +8,116 @@ import java.util.Date;
 
 public class Account implements Serializable {
     /**
-     *
+     *主键
      */
     private String id;
 
     /**
-     *
+     *账号
      */
     private String accoutNo;
 
     /**
-     *
+     *用户id
      */
     private String userId;
 
     /**
-     *
+     *状态
      */
     private String status;
 
     /**
-     *
+     *创建时间
      */
     private Date createTime;
 
     /**
-     *
+     *更新时间
      */
     private Date updateTime;
 
     private static final long serialVersionUID = 1L;
 
     /**
-     *
+     *主键
      */
     public String getId() {
         return id;
     }
 
     /**
-     *
+     *主键
      */
     public void setId(String id) {
         this.id = id == null ? null : id.trim();
     }
 
     /**
-     *
+     *账号
      */
     public String getAccoutNo() {
         return accoutNo;
     }
 
     /**
-     *
+     *账号
      */
     public void setAccoutNo(String accoutNo) {
         this.accoutNo = accoutNo == null ? null : accoutNo.trim();
     }
 
     /**
-     *
+     *用户id
      */
     public String getUserId() {
         return userId;
     }
 
     /**
-     *
+     *用户id
      */
     public void setUserId(String userId) {
         this.userId = userId == null ? null : userId.trim();
     }
 
     /**
-     *
+     *状态
      */
     public String getStatus() {
         return status;
     }
 
     /**
-     *
+     *状态
      */
     public void setStatus(String status) {
         this.status = status == null ? null : status.trim();
     }
 
     /**
-     *
+     *创建时间
      */
     public Date getCreateTime() {
         return createTime;
     }
 
     /**
-     *
+     *创建时间
      */
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
     /**
-     *
+     *更新时间
      */
     public Date getUpdateTime() {
         return updateTime;
     }
 
     /**
-     *
+     *更新时间
      */
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;

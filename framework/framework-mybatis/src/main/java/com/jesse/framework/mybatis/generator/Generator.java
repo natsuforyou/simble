@@ -2,7 +2,7 @@
  * ©2016 Jesse. some rights reserved.
  */
 
-package mybatis.generator;
+package com.jesse.framework.mybatis.generator;
 
 import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.config.Configuration;
@@ -17,13 +17,13 @@ import java.util.List;
 /**
  * Created by Jesse Qian on 16-5-7.
  */
-public class Generate {
+public class Generator {
 
     public static void main(String[] args) {
         List<String> warnings = new ArrayList<>();
         try {
             boolean overwrite = true;
-            File configFile = new File("/home/jiaxin/Dev/simple-soa-website/test/test-dao/src/main/resources/mybatis/generator/generate_qianjiaxin.xml");
+            File configFile = new File("/home/jiaxin/Dev/simple-soa-website/framework/framework-mybatis/src/main/resources/mybatis/mapping/test_mapping.xml");
             if (configFile.exists()) {
                 ConfigurationParser cp = new ConfigurationParser(warnings);
                 Configuration config = cp.parseConfiguration(configFile);

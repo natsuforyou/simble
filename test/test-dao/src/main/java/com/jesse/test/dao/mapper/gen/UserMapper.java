@@ -27,4 +27,8 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    User lockByPrimaryKey(@Param("id") String id);
+
+    List<User> lockByExample(UserExample example);
 }
