@@ -37,7 +37,7 @@
 
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <!-- 加入maybatis配置文件 -->
+        <!-- 加入mybatis配置文件 -->
         <property name="configLocation" value="classpath:config/mybatis-configuration.xml"/>
         <property name="mapperLocations">
             <list>
