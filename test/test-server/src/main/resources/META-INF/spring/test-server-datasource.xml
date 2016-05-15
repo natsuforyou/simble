@@ -12,8 +12,8 @@
         <!-- <property name="ignoreUnresolvablePlaceholders" value="true" /> -->
         <property name="propertiesFiles">
             <list>
-                <value>R:META-INf/mysql-jdbc.META-INf</value>
-                <value>G:META-INf/mysql-jdbc.META-INf</value>
+                <value>R:properties/mysql-jdbc.properties</value>
+                <value>G:properties/mysql-jdbc.properties</value>
             </list>
         </property>
     </bean>

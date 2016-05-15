@@ -12,7 +12,7 @@
     <bean class="com.jesse.framework.config.MyPropertyPlaceholderConfigurer">
         <property name="propertiesFiles">
             <list>
-                <value>R:META-INf/zkService.META-INf</value>
+                <value>R:properties/zkService.properties</value>
             </list>
         </property>
     </bean>
