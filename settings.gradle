@@ -1,2 +1,3 @@
 apply from : 'framework.settings.gradle'
+apply from : 'common.settings.gradle'
 apply from : 'test.settings.gradle'
