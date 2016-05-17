@@ -20,7 +20,7 @@ ext {
             commons_lang3:          'org.apache.commons:commons-lang3:3.4',
             commons_io:             'commons-io:commons-io:2.4',
 
-            dubbo:                  'com.alibaba:dubbo:2.5.3',
+            dubbo:                  'com.cmbchina:dubbo:2.8.4',
 
 
             fastjson:               'com.alibaba:fastjson:1.2.7',
@@ -43,7 +43,9 @@ ext {
             // spring
             spring_context:         "org.springframework:spring-context:${versions.spring}",
             spring_context_support: "org.springframework:spring-context-support:${versions.spring}",
+            spring_jdbc:            "org.springframework:spring-jdbc:${versions.spring}",
             spring_test:            "org.springframework:spring-test:${versions.spring}",
+            spring_tx:              "org.springframework:spring-tx:${versions.spring}",
 
             // zookeeper
             zookeeper:              'org.apache.zookeeper:zookeeper:3.4.6' ,

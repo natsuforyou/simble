@@ -1,4 +1,7 @@
 dependencies{
     compile libraries.spring_context_support
+    compile libraries.spring_jdbc
+    compile libraries.aspectj
+    compile libraries.aspectj_rt
     compile project(":framework:framework-core")
 }
