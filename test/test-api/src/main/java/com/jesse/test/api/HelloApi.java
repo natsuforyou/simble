@@ -9,4 +9,5 @@ package com.jesse.test.api;
  */
 public interface HelloApi {
 
+    String sayHello();
 }

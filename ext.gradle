@@ -1,6 +1,6 @@
 ext {
     versions = [
-//            aspectj:                '1.8.8',
+            aspectj:                '1.8.8',
 //            poi:                    '3.13',
             slf4j:                  '1.7.13',
             spring:                 '4.2.4.RELEASE',
@@ -8,6 +8,11 @@ ext {
     ];
 
     libraries = [
+
+            // aspectj
+            aspectj:                "org.aspectj:aspectjweaver:${versions.aspectj}",
+            aspectj_rt:             "org.aspectj:aspectjrt:${versions.aspectj}",
+            aspectj_tools:          "org.aspectj:aspectjtools:${versions.aspectj}",
 
             c3p0:                   'c3p0:c3p0:0.9.1.2',
 
