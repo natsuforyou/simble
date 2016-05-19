@@ -1,6 +1,7 @@
 apply plugin: 'application'
 
 dependencies{
+    compile project(":common:common-service")
     compile project(":test:test-service")
     compile project(":test:test-api")
 }
