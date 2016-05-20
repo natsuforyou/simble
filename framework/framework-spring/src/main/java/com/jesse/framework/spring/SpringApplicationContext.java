@@ -2,7 +2,7 @@
  * ©2016 Jesse. some rights reserved.
  */
 
-package com.jesse.framework.spring.context;
+package com.jesse.framework.spring;
 
 import org.springframework.context.ApplicationContext;
 

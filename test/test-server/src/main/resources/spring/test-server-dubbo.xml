@@ -13,7 +13,7 @@
     <bean class="com.jesse.framework.config.MyPropertyPlaceholderConfigurer">
         <property name="propertiesFiles">
             <list>
-                <value>R:properties/zkService.properties</value>
+                <value>G:properties/zkService.properties</value>
             </list>
         </property>
     </bean>

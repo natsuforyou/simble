@@ -10,14 +10,6 @@
                            http://www.springframework.org/schema/context        http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
     <!--<bean id="springApplicationContextProvider" class="com.jesse.framework.spring.context.SpringApplicationContextProvider"/>-->
-    <context:component-scan base-package="com.jesse.framework.spring.context"/>
+    <!--<context:component-scan base-package="com.jesse.framework.spring.context"/>-->
 
-    <!--<bean id="myPropertyPlaceholderConfigurer" class="com.jesse.framework.config.MyPropertyPlaceholderConfigurer">-->
-        <!--<property name="propertiesFiles">-->
-            <!--<list>-->
-                <!--<value>G:META-INF/mysql-jdbc.META-INF</value>-->
-                <!--<value>P:META-INF/mysql-jdbc.META-INF</value>-->
-            <!--</list>-->
-        <!--</property>-->
-    <!--</bean>-->
 </beans>
