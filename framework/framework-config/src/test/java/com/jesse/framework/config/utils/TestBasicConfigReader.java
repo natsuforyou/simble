@@ -2,10 +2,6 @@
  * ©2016 Jesse. some rights reserved.
  */
 
-/*
- * ©2016 Jesse. some rights reserved.
- */
-
 package com.jesse.framework.config.utils;
 
 import org.junit.Test;
