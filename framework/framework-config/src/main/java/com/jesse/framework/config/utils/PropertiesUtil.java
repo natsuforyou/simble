@@ -9,6 +9,7 @@
 package com.jesse.framework.config.utils;
 
 import com.jesse.framework.config.exception.PropertiesException;
+import com.jesse.framework.spring.SpringApplicationContext;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -65,7 +66,7 @@ public class PropertiesUtil {
             logger.error("given classpath is empty");
             throw PropertiesException.instance("given classpath is empty");
         }
-        Resource resource = new ClassPathXmlApplicationContext().getResource(classpath);
+        Resource resource = SpringApplicationContext.getApplicationContext().getResource(classpath);
         try (InputStream inputStream = resource.getInputStream()) {
             Properties properties = getProperties(inputStream);
             logger.info("load properties from given classpath successfully", properties);
