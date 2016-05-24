@@ -11,13 +11,13 @@ import org.springframework.context.ApplicationContext;
  */
 public class SpringApplicationContext {
 
-    private static ApplicationContext context;
+    private static ApplicationContext applicationContext;
 
-    public static ApplicationContext getContext() {
-        return context;
+    public static void setApplicationContext(ApplicationContext applicationContext) {
+        SpringApplicationContext.applicationContext = applicationContext;
     }
 
-    public static void setContext(ApplicationContext applicationContext) {
-        context = applicationContext;
+    public static <T> T getBean(Class<T> requiredType) {
+        return applicationContext.getBean(requiredType);
     }
 }
