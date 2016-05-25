@@ -10,11 +10,10 @@
 
 
     <bean class="com.jesse.framework.config.MyPropertyPlaceholderConfigurer">
-        <!-- <property name="ignoreUnresolvablePlaceholders" value="true" /> -->
         <property name="propertiesFiles">
             <list>
-                <value>R:properties/mysql-jdbc.properties</value>
                 <value>G:properties/mysql-jdbc.properties</value>
+                <value>P:properties/mysql-jdbc.properties</value>
             </list>
         </property>
     </bean>

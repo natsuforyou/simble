@@ -105,7 +105,7 @@ public class FastConfigReader {
             return;
         }
 
-        onlyLocal = BasicConfRegistry.isLocal();
+        onlyLocal = BasicConfRegistry.isOnlyLocal();
         localInfoInitialized = true;
 
         connectZkIfNeed();

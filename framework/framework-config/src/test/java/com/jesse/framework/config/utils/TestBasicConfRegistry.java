@@ -42,7 +42,7 @@ public class TestBasicConfRegistry {
 
     @Test
     public void isLocalTest() {
-        System.out.println(BasicConfRegistry.isLocal());
+        System.out.println(BasicConfRegistry.isOnlyLocal());
     }
 
     @Test

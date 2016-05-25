@@ -14,8 +14,9 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+import org.springframework.util.ResourceUtils;
 
 import java.io.*;
 import java.util.Properties;
@@ -66,8 +67,7 @@ public class PropertiesUtil {
             logger.error("given classpath is empty");
             throw PropertiesException.instance("given classpath is empty");
         }
-        Resource resource = SpringApplicationContext.getApplicationContext().getResource(classpath);
-        try (InputStream inputStream = resource.getInputStream()) {
+        try (InputStream inputStream = new ClassPathResource(classpath).getInputStream()) {
             Properties properties = getProperties(inputStream);
             logger.info("load properties from given classpath successfully", properties);
             return properties;

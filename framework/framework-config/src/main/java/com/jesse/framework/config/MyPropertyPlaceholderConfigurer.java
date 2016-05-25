@@ -8,6 +8,8 @@ import com.jesse.framework.config.enums.ConfScope;
 import com.jesse.framework.config.exception.PropertiesException;
 import com.jesse.framework.config.utils.BasicConfRegistry;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.collections4.ListUtils;
+import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 
 import java.util.*;
@@ -32,13 +34,13 @@ public class MyPropertyPlaceholderConfigurer extends PropertyPlaceholderConfigur
         }
         List<Properties> propertiesArray = new ArrayList<>();
         propertiesFiles.stream().forEach(propertiesFile -> {
-            String[] strs = propertiesFile.split(":");
-            if (strs.length == 2) {
-                propertiesArray.add(FastConfigReader.getProperties(strs[1], ConfScope.valueOf(strs[0])));
+            String[] filePath = propertiesFile.split(":");
+            if (filePath.length == 2) {
+                propertiesArray.add(FastConfigReader.getProperties(filePath[1], ConfScope.valueOf(filePath[0])));
             }
         });
 
-        setPropertiesArray((Properties[]) propertiesArray.toArray());
+        setPropertiesArray(propertiesArray.toArray(new Properties[]{}));
 
         setIgnoreUnresolvablePlaceholders(true);
     }

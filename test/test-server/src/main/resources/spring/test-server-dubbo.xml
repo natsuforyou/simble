@@ -18,7 +18,7 @@
         </property>
     </bean>
 
-    <dubbo:application name="test-server" owner="Jesse Qian"/>
+    <dubbo:application name="test-server" owner="Jesse.Qian"/>
     <dubbo:registry protocol="zookeeper" address="${connectionString}" file="${user.home}/dubbo/cache/dubbo.cache"/>
     <!--需要配置本地host，因为虚拟机获得的可能不是该虚拟机的ip-->
     <dubbo:provider threads="150" executes="100" port="20989" host="${LOCAL_IP}" accesslog="true" filter="-exception"/>

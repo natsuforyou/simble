@@ -28,16 +28,16 @@ public class BasicConfRegistry {
         return PropertiesReader.getProperty(PathResolver.getSolvedIpPath(), "ip");
     }
 
-    public static boolean isLocal() {
-        String local = PropertiesReader.getProperty(PathResolver.getSolvedIpPath(), "local");
-        return Boolean.TRUE.toString().equalsIgnoreCase(local);
-    }
-
     public static String getZkConnectString() {
         return PropertiesReader.getProperty(PathResolver.getSolvedZkConfPath(), "connectionString");
     }
 
     static String getZkConfPrefix() {
         return PropertiesReader.getProperty(PathResolver.getSolvedZkConfPath(), "confPrefix");
+    }
+
+    public static boolean isOnlyLocal() {
+        String onlyLocal = PropertiesReader.getProperty(PathResolver.getSolvedZkConfPath(), "onlyLocal");
+        return Boolean.TRUE.toString().equalsIgnoreCase(onlyLocal);
     }
 }

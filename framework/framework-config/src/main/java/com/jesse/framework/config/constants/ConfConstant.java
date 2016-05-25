@@ -12,5 +12,5 @@ public class ConfConstant {
 
     public static final String BASE_CONF_PATH = "base.properties";
 
-    public static final String ZK_CONF_PATH = "properties/zk.properties";
+    public static final String ZK_CONF_PATH = "properties/zkService.properties";
 }
