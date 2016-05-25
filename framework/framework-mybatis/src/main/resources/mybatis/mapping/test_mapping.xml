@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
-  ~ ©2016 Jesse. some rights reserved.
+  ~ ©2016 Rick Qian. some rights reserved.
   -->
 
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
@@ -14,10 +14,10 @@
 
         <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
-        <plugin type="com.jesse.framework.mybatis.plugins.PaginationPlugin4Mysql"/>
-        <plugin type="com.jesse.framework.mybatis.plugins.DBCommentPlugin"/>
-        <plugin type="com.jesse.framework.mybatis.plugins.XmlFileOverwritePlugin"/>
-        <plugin type="com.jesse.framework.mybatis.plugins.PessimisticLockPluginMysql"/>
+        <plugin type="com.rick.qian.framework.mybatis.plugins.PaginationPlugin4Mysql"/>
+        <plugin type="com.rick.qian.framework.mybatis.plugins.DBCommentPlugin"/>
+        <plugin type="com.rick.qian.framework.mybatis.plugins.XmlFileOverwritePlugin"/>
+        <plugin type="com.rick.qian.framework.mybatis.plugins.PessimisticLockPluginMysql"/>
 
         <commentGenerator>
             <!-- 是否取消注释 -->
@@ -35,7 +35,7 @@
         </javaTypeResolver>
 
         <!-- java entity生成位置 -->
-        <javaModelGenerator targetPackage="com.jesse.test.dao.po"
+        <javaModelGenerator targetPackage="com.rick.qian.test.dao.po"
                             targetProject="/home/jiaxin/Dev/simple-soa-website/test/test-dao/src/main/java">
             <property name="enableSubPackages" value="false"/>
             <property name="trimStrings" value="true"/>
@@ -48,7 +48,7 @@
         </sqlMapGenerator>
 
         <!-- mapper 接口生成位置 -->
-        <javaClientGenerator targetPackage="com.jesse.test.dao.mapper.gen"
+        <javaClientGenerator targetPackage="com.rick.qian.test.dao.mapper.gen"
                              targetProject="/home/jiaxin/Dev/simple-soa-website/test/test-dao/src/main/java"
                              type="XMLMAPPER">
             <property name="enableSubPackages" value="false"/>

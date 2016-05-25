@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ ©2016 Jesse. some rights reserved.
+  ~ ©2016 Rick Qian. some rights reserved.
   -->
 
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -8,6 +8,6 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="com.jesse.framework.spring.context"/>
+    <context:component-scan base-package="com.rick.qian.framework.spring.context"/>
 
 </beans>

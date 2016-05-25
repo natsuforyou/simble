@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ ©2016 Jesse. some rights reserved.
+  ~ ©2016 Rick Qian. some rights reserved.
   -->
 
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -9,7 +9,7 @@
                "http://www.springframework.org/schema/beans		http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
 
 
-    <bean class="com.jesse.framework.config.MyPropertyPlaceholderConfigurer">
+    <bean class="com.rick.qian.framework.config.MyPropertyPlaceholderConfigurer">
         <property name="propertiesFiles">
             <list>
                 <value>G:properties/mysql-jdbc.properties</value>

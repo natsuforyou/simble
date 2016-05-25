@@ -6,6 +6,6 @@ dependencies{
     compile project(":test:test-api")
 }
 
-mainClassName = 'com.jesse.test.server.TestServerMain'
+mainClassName = 'com.rick.qian.test.server.TestServerMain'
 
 applicationDefaultJvmArgs = ["-server", "-Xms512m", "-Xmx2048m", "-XX:MaxPermSize=512m", "-Dcom.sun.management.jmxremote", "-Dcom.sun.management.jmxremote.port=12801", "-Dcom.sun.management.jmxremote.authenticate=false", "-Dcom.sun.management.jmxremote.ssl=false"]

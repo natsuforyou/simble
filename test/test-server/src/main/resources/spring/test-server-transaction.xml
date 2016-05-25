@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ ©2016 Jesse. some rights reserved.
+  ~ ©2016 Rick Qian. some rights reserved.
   -->
 
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -32,7 +32,7 @@
 
 
     <aop:config>
-        <aop:advisor pointcut="execution(* com.jesse.test.service.transaction..*.*(..))"
+        <aop:advisor pointcut="execution(* com.rick.qian.test.service.transaction..*.*(..))"
                      advice-ref="repeatedReadTxAdvice-REQUIRED"/>
         <!--<aop:advisor pointcut="execution(* com.travelzen.framework.dao.mybatis.mapper.IBatchSequenceMapper+.*(..))" advice-ref="readCommitedTxAdvice-REQUIRES_NEW" />-->
     </aop:config>

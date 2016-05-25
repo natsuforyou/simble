@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ ©2016 Jesse. some rights reserved.
+  ~ ©2016 Rick Qian. some rights reserved.
   -->
 
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -12,7 +12,7 @@
                 http://www.springframework.org/schema/context	http://www.springframework.org/schema/context/spring-context-3.1.xsd
                 http://mybatis.org/schema/mybatis-spring        http://mybatis.org/schema/mybatis-spring.xsd">
 
-    <!--<context:component-scan base-package="com.jesse.test.service"/>-->
-    <mybatis:scan base-package="com.jesse.test.dao.mapper"/>
+    <!--<context:component-scan base-package="com.rick.qian.test.service"/>-->
+    <mybatis:scan base-package="com.rick.qian.test.dao.mapper"/>
 
 </beans>
