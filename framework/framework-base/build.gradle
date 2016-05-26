@@ -1,6 +1,6 @@
-dependencies{
-    compile project(":framework:framework-config")
-    compile project(":framework:framework-logger")
-    compile project(":framework:framework-dao")
-    compile project(":framework:framework-dubbo-support")
-}
+//dependencies{
+//    compile project(":framework:framework-config")
+//    compile project(":framework:framework-logger")
+//    compile project(":framework:framework-dao")
+//    compile project(":framework:framework-dubbo-support")
+//}

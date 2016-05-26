@@ -1,3 +1,5 @@
 dependencies{
+    compile libraries.mysql_connector
+    compile libraries.c3p0
     compile project(":framework:framework-mybatis")
 }

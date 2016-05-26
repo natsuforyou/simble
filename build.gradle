@@ -23,15 +23,6 @@ allprojects {
         testCompile libraries.spring_test
     }
 
-    task createDirs {
-        sourceSets*.java.srcDirs*.each {
-            it.mkdirs()
-        }
-        sourceSets*.resources.srcDirs*.each {
-            it.mkdirs()
-        }
-    }
-
     // 编译groovy代码时采用 MacRoman
     tasks.withType(GroovyCompile) {
         groovyOptions.encoding = 'MacRoman'
