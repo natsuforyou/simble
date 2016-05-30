@@ -1,7 +1,8 @@
 dependencies{
     compile libraries.spring_context_support
     compile libraries.spring_jdbc
+    compile libraries.spring_webmvc
     compile libraries.aspectj
-    compile libraries.aspectj_rt
+    compile libraries.cglib
     compile project(":framework:framework-core")
 }

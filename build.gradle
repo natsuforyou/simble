@@ -12,7 +12,7 @@ allprojects {
     targetCompatibility = '1.8'
 
     repositories {
-//        maven { url 'http://172.16.0.98:8081/nexus/content/groups/public/'}
+        maven { url 'http://172.16.0.98:8081/nexus/content/groups/public/'}
         maven { url 'http://maven.oschina.net/content/groups/public/' }
         mavenCentral()
         mavenLocal()

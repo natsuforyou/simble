@@ -1,0 +1,3 @@
+include 'front:front-common'
+include 'front:rick-common'
+include 'front:rick-front'

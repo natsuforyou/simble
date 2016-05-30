@@ -12,7 +12,7 @@
                 http://www.springframework.org/schema/context	http://www.springframework.org/schema/context/spring-context-3.1.xsd
                 http://mybatis.org/schema/mybatis-spring        http://mybatis.org/schema/mybatis-spring.xsd">
 
-    <!--<context:component-scan base-package="com.rick.qian.test.service"/>-->
+    <context:component-scan base-package="com.rick.qian.test.service"/>
     <mybatis:scan base-package="com.rick.qian.test.dao.mapper"/>
 
 </beans>
