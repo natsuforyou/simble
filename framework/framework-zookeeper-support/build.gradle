@@ -1,5 +1,6 @@
 dependencies{
-    compile libraries.zookeeper
-    compile libraries.zkclient
+    compile (libraries.zkclient) {
+        exclude group: 'jline', module: 'jline'
+    }
     compile project(":framework:framework-core")
 }
