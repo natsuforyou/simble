@@ -17,5 +17,5 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ComponentScan(basePackages = "com.rick.qian.framework.spring.context")
-public class ContextJavaConfig {
+public class SpringProxyConfig {
 }

@@ -20,14 +20,15 @@
     </bean>
 
     <dubbo:application name="${APP_NAME}" owner="Jesse.Qian"/>
+
     <dubbo:registry protocol="zookeeper" address="${connectionString}" file="${user.home}/dubbo/cache/${APP_NAME}.cache"/>
     <!--需要配置本地host，因为虚拟机获得的可能不是该虚拟机的ip-->
     <dubbo:provider threads="150" executes="100" port="20989" host="${IP}" accesslog="true" filter="-exception"/>
 
     <!--<bean id="helloApiImpl" class="com.rick.qian.test.server.api.impl.HelloApiImpl"/>-->
     <!--<dubbo:service interface="com.rick.qian.test.api.HelloApi" ref="helloApiImpl"/>-->
-    <context:component-scan base-package="com.rick.qian.test.server"/>
-    <dubbo:annotation package="com.rick.qian.test.server"/>
+    <!--<context:component-scan base-package="com.rick.qian.test.server.api.impl"/>-->
+    <dubbo:annotation package="com.rick.qian.test.server.api.impl"/>
 
 
     <!-- dubbo的缺省超时时间是1秒，缺省重试为2次，check表示启动时检查提供者是否存在，true报错，false忽略-->

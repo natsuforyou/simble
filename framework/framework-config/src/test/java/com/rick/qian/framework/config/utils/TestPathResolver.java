@@ -8,7 +8,7 @@
 
 package com.rick.qian.framework.config.utils;
 
-import com.rick.qian.framework.spring.javaConfig.ContextJavaConfig;
+import com.rick.qian.framework.spring.javaConfig.SpringProxyConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -20,7 +20,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * use javaConfig instead of xml config
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = ContextJavaConfig.class)
+@ContextConfiguration(classes = SpringProxyConfig.class)
 //@ContextConfiguration(locations = "classpath:spring/framework-spring-context.xml")
 public class TestPathResolver {
 

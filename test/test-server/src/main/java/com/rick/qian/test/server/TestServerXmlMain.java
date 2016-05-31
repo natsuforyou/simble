@@ -13,7 +13,7 @@ import com.alibaba.dubbo.container.Main;
 /**
  * Created by Rick Qian on 16-5-13.
  */
-public class TestServerMain {
+public class TestServerXmlMain {
     public static void main(String[] args) {
         Main.main(args);
     }

@@ -20,7 +20,7 @@
 
 
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-        <property name="dataSourceName" value="report-dataSource"/>
+        <property name="dataSourceName" value="test-dataSource"/>
         <property name="driverClass" value="${jdbc.driver}"/>
         <property name="jdbcUrl" value="${jdbc.url}"/>
         <property name="user" value="${jdbc.username}"/>
