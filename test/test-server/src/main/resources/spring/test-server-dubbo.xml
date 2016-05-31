@@ -6,9 +6,10 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation=
                "http://www.springframework.org/schema/beans		http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
-				http://code.alibabatech.com/schema/dubbo        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+				http://code.alibabatech.com/schema/dubbo        http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <bean class="com.rick.qian.framework.config.MyPropertyPlaceholderConfigurer">
         <property name="propertiesFiles">
@@ -18,13 +19,15 @@
         </property>
     </bean>
 
-    <dubbo:application name="test-server" owner="Jesse.Qian"/>
-    <dubbo:registry protocol="zookeeper" address="${connectionString}" file="${user.home}/dubbo/cache/dubbo.cache"/>
+    <dubbo:application name="${APP_NAME}" owner="Jesse.Qian"/>
+    <dubbo:registry protocol="zookeeper" address="${connectionString}" file="${user.home}/dubbo/cache/${APP_NAME}.cache"/>
     <!--需要配置本地host，因为虚拟机获得的可能不是该虚拟机的ip-->
-    <dubbo:provider threads="150" executes="100" port="20989" host="${LOCAL_IP}" accesslog="true" filter="-exception"/>
+    <dubbo:provider threads="150" executes="100" port="20989" host="${IP}" accesslog="true" filter="-exception"/>
 
-    <!--<bean id="helloApiImpl" class="HelloApiImpl"/>-->
-    <!--<dubbo:service interface="HelloApi" ref="helloApiImpl"/>-->
+    <!--<bean id="helloApiImpl" class="com.rick.qian.test.server.api.impl.HelloApiImpl"/>-->
+    <!--<dubbo:service interface="com.rick.qian.test.api.HelloApi" ref="helloApiImpl"/>-->
+    <context:component-scan base-package="com.rick.qian.test.server"/>
+    <dubbo:annotation package="com.rick.qian.test.server"/>
 
 
     <!-- dubbo的缺省超时时间是1秒，缺省重试为2次，check表示启动时检查提供者是否存在，true报错，false忽略-->

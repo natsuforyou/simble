@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ ©2016 Rick Qian. some rights reserved.
+  -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans		http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+						   http://code.alibabatech.com/schema/dubbo         http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<bean class="com.rick.qian.framework.config.MyPropertyPlaceholderConfigurer">
+		<property name="propertiesFiles">
+			<list>
+				<value>G:properties/zkService.properties</value>
+			</list>
+		</property>
+	</bean>
+
+    <dubbo:application name="${APP_NAME}" owner="Jesse.Qian"/>
+    
+    <dubbo:registry protocol="zookeeper" address="${connectionString}" file="${user.home}/dubbo/cache/${APP_NAME}.cache"/>
+    
+    <!-- dubbo的缺省超时时间是1秒，缺省重试为2次，check表示启动时检查提供者是否存在，true报错，false忽略-->
+    <dubbo:consumer timeout="60000" retries="0" check="false" />
+
+	<!--<dubbo:annotation package="com.rick.qian.front.controller.test"/>-->
+
+	<dubbo:reference id="helloApi" interface="com.rick.qian.test.api.HelloApi"/>
+
+    <!--此处的每个方法的并发度数值，需要根据部署节点的情况来分配-->
+     <!-- <dubbo:monitor protocol="registry"/> -->
+</beans>
