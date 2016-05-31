@@ -57,7 +57,7 @@ public class AppConfig {
         ProviderConfig providerConfig = new ProviderConfig();
         providerConfig.setThreads(150);
         providerConfig.setExecutes(100);
-//        providerConfig.setHost(ip);
+        providerConfig.setHost(ip);
         return providerConfig;
     }
 
