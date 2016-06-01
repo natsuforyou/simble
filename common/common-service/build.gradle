@@ -1,6 +1,5 @@
 dependencies{
     compile project(":common:common-dao")
     compile project(":framework:framework-dubbo-support")
-    compile project(":framework:framework-config")
     compile project(":framework:framework-logger")
 }

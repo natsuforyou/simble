@@ -1,5 +1,5 @@
 dependencies{
     compile libraries.dubbo
     compile libraries.javassist
-    compile project(":framework:framework-core")
+    compile project(":framework:framework-config")
 }
