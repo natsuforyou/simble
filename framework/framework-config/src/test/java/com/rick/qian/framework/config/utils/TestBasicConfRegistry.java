@@ -21,7 +21,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = SpringProxyConfig.class)
-//@ContextConfiguration(locations = "classpath:spring/framework-spring-context.xml")
+//@ContextConfiguration(locations = "classpath:spring/framework-spring-proxy.xml")
 public class TestBasicConfRegistry {
 
     @Test

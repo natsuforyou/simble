@@ -14,4 +14,5 @@ import org.springframework.context.annotation.Import;
 @Configuration
 @Import(SpringProxyConfig.class)
 public class ImportConfig {
+
 }

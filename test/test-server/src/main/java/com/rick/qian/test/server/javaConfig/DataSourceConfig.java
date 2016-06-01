@@ -5,10 +5,11 @@
 package com.rick.qian.test.server.javaConfig;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
-import org.springframework.beans.factory.annotation.Value;
+import com.rick.qian.framework.config.CustomPropertyPlaceholderConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.annotation.Resource;
 import java.beans.PropertyVetoException;
 
 /**
@@ -17,31 +18,20 @@ import java.beans.PropertyVetoException;
 @Configuration
 public class DataSourceConfig {
 
-    private String driverClass;
-
-    private String jdbcUrl ;
-
-    private String user ;
-
-    private String password ;
-
-    private int initialPoolSize ;
-
-    private int minPoolSize ;
-
-    private int maxPoolSize ;
+    @Resource
+    private CustomPropertyPlaceholderConfigurer placeholderConfigurer;
 
     @Bean(destroyMethod = "close")
     public ComboPooledDataSource dataSource() throws PropertyVetoException {
         ComboPooledDataSource dataSource = new ComboPooledDataSource();
         dataSource.setDataSourceName("test-dataSource");
-        dataSource.setDriverClass(driverClass);
-        dataSource.setJdbcUrl(jdbcUrl);
-        dataSource.setUser(user);
-        dataSource.setPassword(password);
-        dataSource.setInitialPoolSize(initialPoolSize);
-        dataSource.setMinPoolSize(minPoolSize);
-        dataSource.setMaxPoolSize(maxPoolSize);
+        dataSource.setDriverClass(placeholderConfigurer.getProperty("jdbc.driver"));
+        dataSource.setJdbcUrl(placeholderConfigurer.getProperty("jdbc.url"));
+        dataSource.setUser(placeholderConfigurer.getProperty("jdbc.username"));
+        dataSource.setPassword(placeholderConfigurer.getProperty("jdbc.password"));
+        dataSource.setInitialPoolSize(Integer.parseInt(placeholderConfigurer.getProperty("jdbc.initialPoolSize")));
+        dataSource.setMinPoolSize(Integer.parseInt(placeholderConfigurer.getProperty("jdbc.minPoolSize")));
+        dataSource.setMaxPoolSize(Integer.parseInt(placeholderConfigurer.getProperty("jdbc.maxPoolSize")));
         dataSource.setPreferredTestQuery("SELECT NOW()");
         dataSource.setCheckoutTimeout(30000);
         dataSource.setTestConnectionOnCheckin(true);
@@ -50,38 +40,4 @@ public class DataSourceConfig {
         return dataSource;
     }
 
-    @Value("#{jdbc.driver}")
-    public void setDriverClass(String driverClass) {
-        this.driverClass = driverClass;
-    }
-
-    @Value("#{jdbc.url}")
-    public void setJdbcUrl(String jdbcUrl) {
-        this.jdbcUrl = jdbcUrl;
-    }
-
-    @Value("#{jdbc.username}")
-    public void setUser(String user) {
-        this.user = user;
-    }
-
-    @Value("#{jdbc.password}")
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    @Value("#{jdbc.initialPoolSize}")
-    public void setInitialPoolSize(int initialPoolSize) {
-        this.initialPoolSize = initialPoolSize;
-    }
-
-    @Value("#{jdbc.minPoolSize}")
-    public void setMinPoolSize(int minPoolSize) {
-        this.minPoolSize = minPoolSize;
-    }
-
-    @Value("#{jdbc.maxPoolSize}")
-    public void setMaxPoolSize(int maxPoolSize) {
-        this.maxPoolSize = maxPoolSize;
-    }
 }

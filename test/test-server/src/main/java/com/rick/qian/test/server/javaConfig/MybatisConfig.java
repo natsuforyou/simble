@@ -5,9 +5,9 @@
 package com.rick.qian.test.server.javaConfig;
 
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.core.io.support.ResourcePatternResolver;
 
 import javax.annotation.Resource;
@@ -18,7 +18,7 @@ import java.io.IOException;
  * Created by Rick Qian on 16-5-31.
  */
 @Configuration
-@Import({ContextConfig.class, DataSourceConfig.class})
+@MapperScan("com.rick.qian.test.dao.mapper")
 public class MybatisConfig {
 
     @Resource
@@ -35,4 +35,5 @@ public class MybatisConfig {
         sqlSessionFactoryBean.setDataSource(dataSource);
         return sqlSessionFactoryBean;
     }
+
 }

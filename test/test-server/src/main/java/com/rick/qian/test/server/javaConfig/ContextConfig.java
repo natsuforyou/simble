@@ -4,8 +4,7 @@
 
 package com.rick.qian.test.server.javaConfig;
 
-import com.rick.qian.framework.config.MyPropertyPlaceholderConfigurer;
-import org.mybatis.spring.annotation.MapperScan;
+import com.rick.qian.framework.config.CustomPropertyPlaceholderConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -20,13 +19,12 @@ import java.util.List;
  */
 @Configuration
 @ComponentScan("com.rick.qian.test.service")
-@MapperScan("com.rick.qian.test.dao.mapper")
 public class ContextConfig {
 
     @Bean
-    public static MyPropertyPlaceholderConfigurer propertyPlaceholderConfigurer() {
-        MyPropertyPlaceholderConfigurer propertyPlaceholderConfigurer = new MyPropertyPlaceholderConfigurer();
-        List<String> propertiesFiles = new ArrayList();
+    public CustomPropertyPlaceholderConfigurer propertyPlaceholderConfigurer() {
+        CustomPropertyPlaceholderConfigurer propertyPlaceholderConfigurer = new CustomPropertyPlaceholderConfigurer();
+        List<String> propertiesFiles = new ArrayList<>();
         propertiesFiles.add("G:properties/zkService.properties");
         propertiesFiles.add("G:properties/mysql-jdbc.properties");
         propertiesFiles.add("P:properties/mysql-jdbc.properties");
@@ -36,7 +34,7 @@ public class ContextConfig {
 
     @Bean
     public ResourcePatternResolver resolver() {
-        ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        return resolver;
+        return new PathMatchingResourcePatternResolver();
     }
+
 }

@@ -12,8 +12,13 @@ import com.rick.qian.framework.config.enums.ConfScope;
 import com.rick.qian.framework.config.exception.PropertiesException;
 import com.rick.qian.framework.config.utils.BasicConfRegistry;
 import org.apache.commons.collections4.CollectionUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -21,13 +26,17 @@ import java.util.*;
  * customer PropertyPlaceholderConfigurer
  * {@link PropertyPlaceholderConfigurer}
  */
-public class MyPropertyPlaceholderConfigurer extends PropertyPlaceholderConfigurer {
+public class CustomPropertyPlaceholderConfigurer extends PropertyPlaceholderConfigurer {
+
+    private static Logger logger = LoggerFactory.getLogger(CustomPropertyPlaceholderConfigurer.class);
 
     private static final Map<String, String> GLOBAL_PLACEHOLDERS = new HashMap<>();
 
+    private Properties placeHolders;
+
     static {
-        GLOBAL_PLACEHOLDERS.put("APP_NAME", BasicConfRegistry.getAppName());
-        GLOBAL_PLACEHOLDERS.put("IP", BasicConfRegistry.getIp());
+        GLOBAL_PLACEHOLDERS.put("app.name", BasicConfRegistry.getAppName());
+        GLOBAL_PLACEHOLDERS.put("ip", BasicConfRegistry.getIp());
     }
 
     public void setPropertiesFiles(List<String> propertiesFiles) {
@@ -48,11 +57,21 @@ public class MyPropertyPlaceholderConfigurer extends PropertyPlaceholderConfigur
     }
 
     @Override
+    protected void processProperties(ConfigurableListableBeanFactory beanFactoryToProcess, Properties props) throws BeansException {
+        super.processProperties(beanFactoryToProcess, props);
+        placeHolders = props;
+    }
+
+    @Override
     protected String resolvePlaceholder(String placeholder, Properties props) {
         String value = super.resolvePlaceholder(placeholder, props);
         if (null == value) {
             return GLOBAL_PLACEHOLDERS.get(placeholder);
         }
         return value;
+    }
+
+    public String getProperty(String key) {
+        return resolvePlaceholder(key, placeHolders);
     }
 }

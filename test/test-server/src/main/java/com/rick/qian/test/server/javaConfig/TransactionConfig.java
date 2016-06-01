@@ -6,7 +6,6 @@ package com.rick.qian.test.server.javaConfig;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.annotation.Resource;
@@ -16,7 +15,6 @@ import javax.sql.DataSource;
  * Created by Rick Qian on 16-5-31.
  */
 @Configuration
-@Import(DataSourceConfig.class)
 public class TransactionConfig {
 
     @Resource

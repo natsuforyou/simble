@@ -8,7 +8,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans		http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
 						   http://code.alibabatech.com/schema/dubbo         http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-	<bean class="com.rick.qian.framework.config.MyPropertyPlaceholderConfigurer">
+	<bean class="com.rick.qian.framework.config.CustomPropertyPlaceholderConfigurer">
 		<property name="propertiesFiles">
 			<list>
 				<value>G:properties/zkService.properties</value>
@@ -16,9 +16,9 @@
 		</property>
 	</bean>
 
-    <dubbo:application name="${APP_NAME}" owner="Jesse.Qian"/>
+    <dubbo:application name="${app.name}" owner="Jesse.Qian"/>
     
-    <dubbo:registry protocol="zookeeper" address="${connectionString}" file="${user.home}/dubbo/cache/${APP_NAME}.cache"/>
+    <dubbo:registry protocol="zookeeper" address="${connectionString}" file="${user.home}/dubbo/cache/${app.name}.cache"/>
     
     <!-- dubbo的缺省超时时间是1秒，缺省重试为2次，check表示启动时检查提供者是否存在，true报错，false忽略-->
     <dubbo:consumer timeout="60000" retries="0" check="false" />
