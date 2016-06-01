@@ -7,11 +7,10 @@ package com.rick.qian.test.server;
 import com.alibaba.dubbo.container.Main;
 
 /**
- * dubbo server started with javaConfig
+ * dubbo server started with xml config
  */
-public class TestServerJavaConfigMain {
+public class XmlConfigTestServer {
     public static void main(String[] args) {
-        String[] configs = {"javaconfig"};
-        Main.main(configs);
+        Main.main(args);
     }
 }
