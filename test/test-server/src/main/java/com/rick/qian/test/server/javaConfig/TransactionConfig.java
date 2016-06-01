@@ -11,9 +11,6 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import javax.annotation.Resource;
 import javax.sql.DataSource;
 
-/**
- * Created by Rick Qian on 16-5-31.
- */
 @Configuration
 public class TransactionConfig {
 

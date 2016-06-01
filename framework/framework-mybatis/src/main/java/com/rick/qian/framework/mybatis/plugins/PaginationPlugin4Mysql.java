@@ -2,10 +2,6 @@
  * ©2016 Rick Qian. some rights reserved.
  */
 
-/*
- * ©2016 Rick Qian. some rights reserved.
- */
-
 package com.rick.qian.framework.mybatis.plugins;
 
 import org.mybatis.generator.api.CommentGenerator;
@@ -18,9 +14,6 @@ import org.mybatis.generator.api.dom.xml.XmlElement;
 
 import java.util.List;
 
-/**
- * Created by Rick Qian on 16-5-12.
- */
 public class PaginationPlugin4Mysql extends PluginAdapter {
 
     @Override

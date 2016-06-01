@@ -2,9 +2,6 @@
  * ©2016 Rick Qian. some rights reserved.
  */
 
-/*
- * ©2016 Rick Qian. some rights reserved.
- */
 package com.rick.qian.test.dao.po;
 
 import java.io.Serializable;

@@ -2,10 +2,6 @@
  * ©2016 Rick Qian. some rights reserved.
  */
 
-/*
- * ©2016 Rick Qian. some rights reserved.
- */
-
 package com.rick.qian.framework.config;
 
 import com.rick.qian.framework.config.enums.ConfLocation;
@@ -30,7 +26,6 @@ import java.util.Properties;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * Created by Rick Qian on 16-5-7.
  * fast config reader try from zk
  */
 public class FastConfigReader {

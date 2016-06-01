@@ -2,10 +2,6 @@
  * ©2016 Rick Qian. some rights reserved.
  */
 
-/*
- * ©2016 Rick Qian. some rights reserved.
- */
-
 package com.rick.qian.framework.mybatis.plugins;
 
 import org.mybatis.generator.api.IntrospectedColumn;
@@ -17,9 +13,6 @@ import org.mybatis.generator.api.dom.java.TopLevelClass;
 
 import java.util.List;
 
-/**
- * Created by Rick Qian on 16-5-12.
- */
 public class DBCommentPlugin extends PluginAdapter {
 
     public boolean validate(List<String> warnings) {

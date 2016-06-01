@@ -2,14 +2,9 @@
  * ©2016 Rick Qian. some rights reserved.
  */
 
-/*
- * ©2016 Rick Qian. some rights reserved.
- */
-
 package com.rick.qian.framework.config.utils;
 
 /**
- * Created by Rick Qian on 16-5-10.
  * read properties by key
  */
 class PropertiesReader {

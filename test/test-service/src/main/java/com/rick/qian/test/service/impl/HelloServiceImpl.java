@@ -2,18 +2,11 @@
  * ©2016 Rick Qian. some rights reserved.
  */
 
-/*
- * ©2016 Rick Qian. some rights reserved.
- */
-
 package com.rick.qian.test.service.impl;
 
 import com.rick.qian.test.service.HelloService;
 import org.springframework.stereotype.Service;
 
-/**
- * Created by Rick Qian on 16-5-13.
- */
 @Service
 public class HelloServiceImpl implements HelloService {
 

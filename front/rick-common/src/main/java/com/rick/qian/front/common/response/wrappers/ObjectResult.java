@@ -6,9 +6,6 @@ package com.rick.qian.front.common.response.wrappers;
 
 import java.io.Serializable;
 
-/**
- * Created by Rick Qian on 16-5-30.
- */
 public class ObjectResult<T> implements Serializable {
 
     private static final long serialVersionUID = 4491955986842745524L;

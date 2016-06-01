@@ -2,10 +2,6 @@
  * ©2016 Rick Qian. some rights reserved.
  */
 
-/*
- * ©2016 Rick Qian. some rights reserved.
- */
-
 package com.rick.qian.framework.config;
 
 import com.rick.qian.framework.config.enums.ConfScope;
@@ -22,13 +18,10 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * Created by Rick Qian on 16-5-7.
  * customer PropertyPlaceholderConfigurer
  * {@link PropertyPlaceholderConfigurer}
  */
 public class CustomPropertyPlaceholderConfigurer extends PropertyPlaceholderConfigurer {
-
-    private static Logger logger = LoggerFactory.getLogger(CustomPropertyPlaceholderConfigurer.class);
 
     private static final Map<String, String> GLOBAL_PLACEHOLDERS = new HashMap<>();
 

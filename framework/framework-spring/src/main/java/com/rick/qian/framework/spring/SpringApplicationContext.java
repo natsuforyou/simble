@@ -2,17 +2,10 @@
  * ©2016 Rick Qian. some rights reserved.
  */
 
-/*
- * ©2016 Rick Qian. some rights reserved.
- */
-
 package com.rick.qian.framework.spring;
 
 import org.springframework.context.ApplicationContext;
 
-/**
- * Created by Rick Qian on 16-5-8.
- */
 public class SpringApplicationContext {
 
     private static ApplicationContext applicationContext;

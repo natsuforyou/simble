@@ -2,10 +2,6 @@
  * ©2016 Rick Qian. some rights reserved.
  */
 
-/*
- * ©2016 Rick Qian. some rights reserved.
- */
-
 package com.rick.qian.framework.mybatis.plugins;
 
 import org.mybatis.generator.api.GeneratedXmlFile;
@@ -15,9 +11,6 @@ import org.mybatis.generator.api.PluginAdapter;
 import java.lang.reflect.Field;
 import java.util.List;
 
-/**
- * Created by Rick Qian on 16-5-13.
- */
 public class XmlFileOverwritePlugin extends PluginAdapter {
 
     @Override

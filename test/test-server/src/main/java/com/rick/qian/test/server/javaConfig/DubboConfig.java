@@ -12,9 +12,6 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.Resource;
 
-/**
- * Created by Rick Qian on 16-5-31.
- */
 @Configuration()
 public class DubboConfig {
 

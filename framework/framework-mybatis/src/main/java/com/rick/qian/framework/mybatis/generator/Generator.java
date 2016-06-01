@@ -2,10 +2,6 @@
  * ©2016 Rick Qian. some rights reserved.
  */
 
-/*
- * ©2016 Rick Qian. some rights reserved.
- */
-
 package com.rick.qian.framework.mybatis.generator;
 
 import org.mybatis.generator.api.MyBatisGenerator;
@@ -18,9 +14,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Rick Qian on 16-5-7.
- */
 public class Generator {
 
     public static void main(String[] args) {

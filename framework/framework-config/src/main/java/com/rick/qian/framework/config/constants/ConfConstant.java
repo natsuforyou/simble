@@ -1,9 +1,9 @@
+/*
+ * ©2016 Rick Qian. some rights reserved.
+ */
+
 package com.rick.qian.framework.config.constants;
 
-/**
- * Created by Rick Qian on 16-5-11.
- *
- */
 public class ConfConstant {
 
     public static final String GLOBAL_STRING = "global";

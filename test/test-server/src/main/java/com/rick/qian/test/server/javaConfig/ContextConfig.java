@@ -14,9 +14,6 @@ import org.springframework.core.io.support.ResourcePatternResolver;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Rick Qian on 16-5-31.
- */
 @Configuration
 @ComponentScan("com.rick.qian.test.service")
 public class ContextConfig {

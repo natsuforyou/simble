@@ -2,10 +2,6 @@
  * ©2016 Rick Qian. some rights reserved.
  */
 
-/*
- * ©2016 Rick Qian. some rights reserved.
- */
-
 package com.rick.qian.framework.config.utils;
 
 import com.rick.qian.framework.spring.javaConfig.SpringProxyConfig;
@@ -15,7 +11,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
- * Created by Rick Qian on 16-5-9.
  * @see BasicConfRegistry
  * use javaConfig instead of xml config
  */

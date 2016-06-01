@@ -2,10 +2,6 @@
  * ©2016 Rick Qian. some rights reserved.
  */
 
-/*
- * ©2016 Rick Qian. some rights reserved.
- */
-
 package com.rick.qian.framework.mybatis.plugins;
 
 import org.mybatis.generator.api.IntrospectedColumn;
@@ -23,9 +19,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-/**
- * Created by Rick Qian on 16-5-13.
- */
 public class PessimisticLockPlugin extends PluginAdapter {
     @Override
     public boolean validate(List<String> warnings) {

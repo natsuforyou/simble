@@ -18,9 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
-/**
- * Created by Rick Qian on 16-5-30.
- */
 @ImportResource("classpath:spring/rick-front-*.xml")
 @RestController
 @EnableAutoConfiguration

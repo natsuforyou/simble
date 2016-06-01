@@ -7,7 +7,6 @@ package com.rick.qian.test.server;
 import com.alibaba.dubbo.container.Main;
 
 /**
- * Created by Rick Qian on 16-5-31.
  * dubbo server started with javaConfig
  */
 public class TestServerJavaConfigMain {

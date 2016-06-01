@@ -2,14 +2,6 @@
  * ©2016 Rick Qian. some rights reserved.
  */
 
-/*
- * ©2016 Rick Qian. some rights reserved.
- */
-
-/*
- * ©2016 Rick Qian. some rights reserved.
- */
-
 package com.rick.qian.framework.config.utils;
 
 import com.rick.qian.framework.config.exception.PropertiesException;
@@ -23,7 +15,6 @@ import java.io.*;
 import java.util.Properties;
 
 /**
- * Created by Rick Qian on 16-5-6.
  * load properties from filePath, classpath, inputStream and byte[]
  */
 public class PropertiesUtil {

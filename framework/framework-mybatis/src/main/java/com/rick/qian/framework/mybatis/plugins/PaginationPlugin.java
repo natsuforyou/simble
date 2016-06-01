@@ -2,10 +2,6 @@
  * ©2016 Rick Qian. some rights reserved.
  */
 
-/*
- * ©2016 Rick Qian. some rights reserved.
- */
-
 package com.rick.qian.framework.mybatis.plugins;
 
 import org.apache.commons.lang3.StringUtils;
@@ -19,9 +15,6 @@ import org.mybatis.generator.api.dom.xml.XmlElement;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by Rick Qian on 16-5-13.
- */
 public class PaginationPlugin extends PluginAdapter {
     private final static String OFFSET = "offset";
     private final static String LIMIT = "limit";

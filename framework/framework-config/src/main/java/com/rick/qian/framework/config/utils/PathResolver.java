@@ -2,10 +2,6 @@
  * ©2016 Rick Qian. some rights reserved.
  */
 
-/*
- * ©2016 Rick Qian. some rights reserved.
- */
-
 package com.rick.qian.framework.config.utils;
 
 import com.rick.qian.framework.config.constants.ConfConstant;
@@ -20,7 +16,6 @@ import org.slf4j.LoggerFactory;
 import java.io.File;
 
 /**
- * Created by Rick Qian on 16-5-7.
  * resolve file fileName if windows or zookeeper
  */
 public class PathResolver {

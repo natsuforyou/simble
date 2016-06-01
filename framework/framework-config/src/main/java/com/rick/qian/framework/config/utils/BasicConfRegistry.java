@@ -2,16 +2,11 @@
  * ©2016 Rick Qian. some rights reserved.
  */
 
-/*
- * ©2016 Rick Qian. some rights reserved.
- */
-
 package com.rick.qian.framework.config.utils;
 
 import com.rick.qian.framework.config.constants.ConfConstant;
 
 /**
- * Created by Rick Qian on 16-5-7.
  * register basic config
  */
 public class BasicConfRegistry {

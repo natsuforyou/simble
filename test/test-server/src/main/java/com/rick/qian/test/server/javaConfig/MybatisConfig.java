@@ -14,9 +14,6 @@ import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.io.IOException;
 
-/**
- * Created by Rick Qian on 16-5-31.
- */
 @Configuration
 @MapperScan("com.rick.qian.test.dao.mapper")
 public class MybatisConfig {
