@@ -2,5 +2,5 @@ dependencies{
     compile (libraries.zkclient) {
         exclude group: 'jline', module: 'jline'
     }
-    compile project(":framework:framework-core")
+    compile project(":framework:framework-spring-support")
 }

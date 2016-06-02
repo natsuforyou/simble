@@ -2,10 +2,14 @@
  * ©2016 Rick Qian. some rights reserved.
  */
 
-package com.rick.qian.framework.spring.context;
+/*
+ * ©2016 Rick Qian. some rights reserved.
+ */
 
-import com.rick.qian.framework.spring.SpringApplicationContext;
-import com.rick.qian.framework.spring.annotation.Context;
+package com.rick.qian.framework.spring.support.context;
+
+import com.rick.qian.framework.spring.support.SpringApplicationContext;
+import com.rick.qian.framework.spring.support.annotation.Context;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;

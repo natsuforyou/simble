@@ -4,7 +4,7 @@
 
 package com.rick.qian.member.server.javaConfig;
 
-import com.rick.qian.framework.spring.javaConfig.SpringProxyConfig;
+import com.rick.qian.framework.spring.support.javaConfig.SpringProxyConfig;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 

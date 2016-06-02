@@ -1,4 +1,3 @@
 dependencies{
     compile project(":framework:framework-zookeeper-support")
-    compile project(":framework:framework-spring")
 }

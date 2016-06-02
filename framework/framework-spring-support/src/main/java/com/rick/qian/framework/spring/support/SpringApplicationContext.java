@@ -2,7 +2,11 @@
  * ©2016 Rick Qian. some rights reserved.
  */
 
-package com.rick.qian.framework.spring;
+/*
+ * ©2016 Rick Qian. some rights reserved.
+ */
+
+package com.rick.qian.framework.spring.support;
 
 import org.springframework.context.ApplicationContext;
 

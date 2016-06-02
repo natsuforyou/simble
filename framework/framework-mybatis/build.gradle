@@ -2,5 +2,5 @@ dependencies{
     compile libraries.mybatis
     compile libraries.mybatis_spring
     compile libraries.mybatis_generator
-    compile project(":framework:framework-core")
+    compile project(":framework:framework-spring-support")
 }

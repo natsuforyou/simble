@@ -6,7 +6,11 @@
  * ©2016 Rick Qian. some rights reserved.
  */
 
-package com.rick.qian.framework.spring.javaConfig;
+/*
+ * ©2016 Rick Qian. some rights reserved.
+ */
+
+package com.rick.qian.framework.spring.support.javaConfig;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

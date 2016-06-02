@@ -2,7 +2,11 @@
  * ©2016 Rick Qian. some rights reserved.
  */
 
-package com.rick.qian.framework.spring.annotation;
+/*
+ * ©2016 Rick Qian. some rights reserved.
+ */
+
+package com.rick.qian.framework.spring.support.annotation;
 
 import org.springframework.stereotype.Component;
 
