@@ -1,2 +1,2 @@
 include 'front:front-common'
-include 'front:rick-front'
+include 'front:simble-front-web'
