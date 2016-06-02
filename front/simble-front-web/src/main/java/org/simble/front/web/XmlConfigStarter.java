@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 
 @EnableAutoConfiguration
-@Configuration
+//@Configuration
 @ImportResource("classpath:spring/simble-front-web-*.xml")
 public class XmlConfigStarter implements EmbeddedServletContainerCustomizer {
 

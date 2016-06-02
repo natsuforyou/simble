@@ -28,7 +28,7 @@ ext {
 
             fastjson:               'com.alibaba:fastjson:1.2.7',
 
-            groovy:                 'org.codehaus.groovy:groovy:2.4.6',
+            groovy:                 'org.codehaus.groovy:groovy-all:2.4.6',
 
 
             javassist:              'org.javassist:javassist:3.20.0-GA',

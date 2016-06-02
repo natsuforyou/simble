@@ -1,7 +1,7 @@
 package org.simble.member.service.transaction.impl;
 
-import com.rick.qian.test.dao.mapper.gen.UserMapper;
-import com.rick.qian.test.dao.po.User;
+import org.simble.member.dao.mapper.gen.UserMapper;
+import org.simble.member.dao.po.User;
 import org.simble.member.service.transaction.HelloTransactionService;
 
 import javax.annotation.Resource;

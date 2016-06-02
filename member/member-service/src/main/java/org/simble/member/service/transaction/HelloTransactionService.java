@@ -1,6 +1,6 @@
 package org.simble.member.service.transaction;
 
-import com.rick.qian.test.dao.po.User;
+import org.simble.member.dao.po.User;
 
 /**
  * Created by Rick Qian on 16-5-17.
