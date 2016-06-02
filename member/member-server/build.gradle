@@ -1,7 +1,6 @@
 apply plugin: 'application'
 
 dependencies{
-    compile project(":common:common-service")
     compile project(":member:member-service")
     compile project(":member:member-api")
 }

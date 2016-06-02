@@ -1,4 +1,5 @@
 dependencies{
+    compile project(":framework:framework-dubbo-support")
     compile project(":member:member-dao")
     compile project(":common:common-service")
 }

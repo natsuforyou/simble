@@ -2,6 +2,5 @@ apply plugin: 'war'
 
 dependencies {
     compile project(':front:front-common')
-    compile project(':front:rick-common')
     compile project(':member:member-api')
 }

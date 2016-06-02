@@ -1,6 +1,5 @@
 dependencies {
     compile libraries.servlet_api
     compile libraries.spring_boot_web
-    compile project(':framework:framework-config')
     compile project(':framework:framework-dubbo-support')
 }
