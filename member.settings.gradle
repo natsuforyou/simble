@@ -1,0 +1,4 @@
+include 'member:member-dao'
+include 'member:member-service'
+include 'member:member-server'
+include 'member:member-api'

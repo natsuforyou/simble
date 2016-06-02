@@ -1,4 +1,0 @@
-dependencies{
-    compile project(":test:test-dao")
-    compile project(":common:common-service")
-}

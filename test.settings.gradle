@@ -1,4 +1,0 @@
-include 'test:test-dao'
-include 'test:test-service'
-include 'test:test-server'
-include 'test:test-api'

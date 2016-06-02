@@ -1,0 +1,4 @@
+dependencies{
+    compile project(":member:member-dao")
+    compile project(":common:common-service")
+}
