@@ -15,6 +15,14 @@ import org.springframework.context.annotation.Configuration;
 public class DubboConfig extends DubboBaseConfig{
 
     @Bean
+    public ProtocolConfig protocolConfig(){
+        ProtocolConfig protocolConfig=new ProtocolConfig("dubbo",20881);
+        protocolConfig.setHost(placeholderConfigurer.getProperty("ip"));
+        protocolConfig.setSerialization("kryo");
+        return protocolConfig;
+    }
+
+    @Bean
     public ProviderConfig providerConfig() {
         ProviderConfig providerConfig = new ProviderConfig();
         providerConfig.setThreads(150);
@@ -22,14 +30,6 @@ public class DubboConfig extends DubboBaseConfig{
         providerConfig.setAccesslog(true);
         providerConfig.setFilter("-exception");
         return providerConfig;
-    }
-
-    @Bean
-    public ProtocolConfig protocolConfig(){
-        ProtocolConfig protocolConfig=new ProtocolConfig("dubbo",20001);
-        protocolConfig.setHost(placeholderConfigurer.getProperty("ip"));
-        protocolConfig.setSerialization("java");
-        return protocolConfig;
     }
 
     @Bean
