@@ -9,14 +9,13 @@ import com.alibaba.dubbo.config.ConsumerConfig;
 import com.alibaba.dubbo.config.RegistryConfig;
 import com.rick.qian.framework.config.CustomPropertyPlaceholderConfigurer;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.Resource;
 
 public class DubboBaseConfig {
 
     @Resource
-    private CustomPropertyPlaceholderConfigurer placeholderConfigurer;
+    protected CustomPropertyPlaceholderConfigurer placeholderConfigurer;
 
     @Bean
     public ApplicationConfig applicationConfig() {

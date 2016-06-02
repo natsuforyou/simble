@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
-@ComponentScan("com.rick.qian.front.controller")
 public class ContextConfig {
 
     @Bean

@@ -7,20 +7,12 @@ package com.rick.qian.test.server.javaConfig;
 import com.alibaba.dubbo.config.ProtocolConfig;
 import com.alibaba.dubbo.config.ProviderConfig;
 import com.alibaba.dubbo.config.spring.AnnotationBean;
-import com.rick.qian.framework.config.CustomPropertyPlaceholderConfigurer;
 import com.rick.qian.framework.dubbo.support.javaConfig.DubboBaseConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
-
-import javax.annotation.Resource;
 
 @Configuration
-@Import(DubboBaseConfig.class)
-public class DubboConfig {
-
-    @Resource
-    private CustomPropertyPlaceholderConfigurer placeholderConfigurer;
+public class DubboConfig extends DubboBaseConfig{
 
     @Bean
     public ProviderConfig providerConfig() {
