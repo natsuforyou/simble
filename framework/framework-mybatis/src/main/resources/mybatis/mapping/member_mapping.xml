@@ -27,36 +27,35 @@
 
         <!-- 数据库链接 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://172.16.0.124:3306/demo" userId="root"
-                        password="19860922"/>
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/rick" userId="member_server"
+                        password="Abc123"/>
 
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
 
         <!-- java entity生成位置 -->
-        <javaModelGenerator targetPackage="com.rick.qian.test.dao.po"
-                            targetProject="/home/jiaxin/Dev/simple-soa-website/test/test-dao/src/main/java">
+        <javaModelGenerator targetPackage="com.rick.qian.member.dao.po"
+                            targetProject="/home/jiaxin/Dev/simple-soa-website/member/member-dao/src/main/java">
             <property name="enableSubPackages" value="false"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <!-- mapper xml配置文件生成位置 -->
         <sqlMapGenerator targetPackage="mybatis.mapper.gen"
-                         targetProject="/home/jiaxin/Dev/simple-soa-website/test/test-dao/src/main/resources">
+                         targetProject="/home/jiaxin/Dev/simple-soa-website/member/member-dao/src/main/resources">
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
 
         <!-- mapper 接口生成位置 -->
-        <javaClientGenerator targetPackage="com.rick.qian.test.dao.mapper.gen"
-                             targetProject="/home/jiaxin/Dev/simple-soa-website/test/test-dao/src/main/java"
+        <javaClientGenerator targetPackage="com.rick.qian.member.dao.mapper.gen"
+                             targetProject="/home/jiaxin/Dev/simple-soa-website/member/member-dao/src/main/java"
                              type="XMLMAPPER">
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
 
         <!-- 表以及关系配置 -->
-        <table tableName="user" domainObjectName="User"/>
-        <table tableName="account" domainObjectName="Account"/>
+        <table tableName="member_user" domainObjectName="User"/>
 
     </context>
 </generatorConfiguration>
