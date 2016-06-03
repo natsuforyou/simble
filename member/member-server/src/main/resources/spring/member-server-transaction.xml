@@ -28,7 +28,7 @@
 
 
     <aop:config>
-        <aop:advisor pointcut="execution(* org.simble.member.service.transaction..*.*(..))"
+        <aop:advisor pointcut="execution(* org.simble.member.service.impl..*.*(..))"
                      advice-ref="repeatedReadTxAdvice-REQUIRED"/>
         <!--<aop:advisor pointcut="execution(* com.travelzen.framework.dao.mybatis.mapper.IBatchSequenceMapper+.*(..))" advice-ref="readCommitedTxAdvice-REQUIRES_NEW" />-->
     </aop:config>

@@ -37,6 +37,9 @@ ext {
 
             junit:                  'junit:junit:4.12',
 
+            kryo:                   'com.esotericsoftware:kryo:3.0.3',
+            kryo_serializers:       'de.javakaffee:kryo-serializers:0.38',
+
             slf4j_api:              "org.slf4j:slf4j-api:${versions.slf4j}",
 
             // mybatis
