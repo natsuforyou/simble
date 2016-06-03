@@ -2,13 +2,15 @@ package org.simble.common.response.wrappers;
 
 import java.io.Serializable;
 
+import static org.simble.common.response.wrappers.ReturnCode.SUCCESS;
+
 public class ObjectResult<T> implements Serializable {
 
     private static final long serialVersionUID = 4491955986842745524L;
 
     private T data;
 
-    private ReturnCode returnCode;
+    private String returnCode;
 
     private String returnMsg;
 
@@ -20,11 +22,11 @@ public class ObjectResult<T> implements Serializable {
         this.data = data;
     }
 
-    public ReturnCode getReturnCode() {
+    public String getReturnCode() {
         return returnCode;
     }
 
-    public void setReturnCode(ReturnCode returnCode) {
+    public void setReturnCode(String returnCode) {
         this.returnCode = returnCode;
     }
 
@@ -36,22 +38,23 @@ public class ObjectResult<T> implements Serializable {
         this.returnMsg = returnMsg;
     }
 
-    public static <T> ObjectResult <T> success(String returnMsg, T data) {
+    public static <T> ObjectResult <T> success(T data) {
         ObjectResult<T> result = new ObjectResult<>();
-        result.setReturnCode(ReturnCode.SUCCESS);
-        result.setReturnMsg(returnMsg);
+        result.setReturnCode(SUCCESS.getReturnCode());
+        result.setReturnMsg(SUCCESS.getReturnMsg());
         result.setData(data);
         return result;
     }
 
-    public static ObjectResult success(String returnMsg) {
-        return success(returnMsg, null);
+    public static ObjectResult success() {
+        return success(null);
     }
 
-    public static <T> ObjectResult <T> fail(ReturnCode returnCode, String returnMsg) {
+    public static <T> ObjectResult <T> fail(ReturnCode returnCode) {
         ObjectResult<T> result = new ObjectResult<>();
-        result.setReturnCode(returnCode);
-        result.setReturnMsg(returnMsg);
+        result.setReturnCode(returnCode.getReturnCode());
+        result.setReturnMsg(returnCode.getReturnMsg());
         return result;
     }
+
 }

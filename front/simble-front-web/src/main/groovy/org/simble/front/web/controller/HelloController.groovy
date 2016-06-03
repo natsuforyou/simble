@@ -16,6 +16,6 @@ class HelloController {
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     def hello() {
         String hello = helloApi.sayHello()
-        return ObjectResult.success("操作成功", hello)
+        return ObjectResult.success(hello)
     }
 }
