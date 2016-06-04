@@ -23,7 +23,7 @@ ext {
             commons_lang3:          'org.apache.commons:commons-lang3:3.4',
             commons_io:             'commons-io:commons-io:2.4',
 
-            dubbo:                  'com.cmbchina:dubbo:2.8.4',
+            dubbo:                  'com.alibaba:dubbo:2.8.4',
 
 
             fastjson:               'com.alibaba:fastjson:1.2.7',
