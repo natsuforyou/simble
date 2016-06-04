@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="org.simble.member.dao.po.User" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="username" property="username" jdbcType="VARCHAR" />
-    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="login_pwd" property="loginPwd" jdbcType="VARCHAR" />
     <result column="user_status" property="userStatus" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -66,7 +66,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, username, password, user_status
+    id, username, login_pwd, user_status
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="org.simble.member.dao.po.UserExample" >
     select
@@ -102,9 +102,9 @@
     </if>
   </delete>
   <insert id="insert" parameterType="org.simble.member.dao.po.User" >
-    insert into member_user (id, username, password, 
+    insert into member_user (id, username, login_pwd, 
       user_status)
-    values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{loginPwd,jdbcType=VARCHAR}, 
       #{userStatus,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="org.simble.member.dao.po.User" >
@@ -116,8 +116,8 @@
       <if test="username != null" >
         username,
       </if>
-      <if test="password != null" >
-        password,
+      <if test="loginPwd != null" >
+        login_pwd,
       </if>
       <if test="userStatus != null" >
         user_status,
@@ -130,8 +130,8 @@
       <if test="username != null" >
         #{username,jdbcType=VARCHAR},
       </if>
-      <if test="password != null" >
-        #{password,jdbcType=VARCHAR},
+      <if test="loginPwd != null" >
+        #{loginPwd,jdbcType=VARCHAR},
       </if>
       <if test="userStatus != null" >
         #{userStatus,jdbcType=VARCHAR},
@@ -153,8 +153,8 @@
       <if test="record.username != null" >
         username = #{record.username,jdbcType=VARCHAR},
       </if>
-      <if test="record.password != null" >
-        password = #{record.password,jdbcType=VARCHAR},
+      <if test="record.loginPwd != null" >
+        login_pwd = #{record.loginPwd,jdbcType=VARCHAR},
       </if>
       <if test="record.userStatus != null" >
         user_status = #{record.userStatus,jdbcType=VARCHAR},
@@ -168,7 +168,7 @@
     update member_user
     set id = #{record.id,jdbcType=VARCHAR},
       username = #{record.username,jdbcType=VARCHAR},
-      password = #{record.password,jdbcType=VARCHAR},
+      login_pwd = #{record.loginPwd,jdbcType=VARCHAR},
       user_status = #{record.userStatus,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -180,8 +180,8 @@
       <if test="username != null" >
         username = #{username,jdbcType=VARCHAR},
       </if>
-      <if test="password != null" >
-        password = #{password,jdbcType=VARCHAR},
+      <if test="loginPwd != null" >
+        login_pwd = #{loginPwd,jdbcType=VARCHAR},
       </if>
       <if test="userStatus != null" >
         user_status = #{userStatus,jdbcType=VARCHAR},
@@ -192,7 +192,7 @@
   <update id="updateByPrimaryKey" parameterType="org.simble.member.dao.po.User" >
     update member_user
     set username = #{username,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR},
+      login_pwd = #{loginPwd,jdbcType=VARCHAR},
       user_status = #{userStatus,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>

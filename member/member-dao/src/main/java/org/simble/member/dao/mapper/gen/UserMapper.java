@@ -1,9 +1,9 @@
 package org.simble.member.dao.mapper.gen;
 
-import org.simble.member.dao.po.User;
-import org.simble.member.dao.po.UserExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.simble.member.dao.po.User;
+import org.simble.member.dao.po.UserExample;
 
 public interface UserMapper {
     int countByExample(UserExample example);

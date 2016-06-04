@@ -14,9 +14,9 @@ public class User implements Serializable {
     private String username;
 
     /**
-     *密码
+     *登陆密码
      */
-    private String password;
+    private String loginPwd;
 
     /**
      *用户状态
@@ -54,17 +54,17 @@ public class User implements Serializable {
     }
 
     /**
-     *密码
+     *登陆密码
      */
-    public String getPassword() {
-        return password;
+    public String getLoginPwd() {
+        return loginPwd;
     }
 
     /**
-     *密码
+     *登陆密码
      */
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
+    public void setLoginPwd(String loginPwd) {
+        this.loginPwd = loginPwd == null ? null : loginPwd.trim();
     }
 
     /**
@@ -95,7 +95,7 @@ public class User implements Serializable {
         User other = (User) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getUsername() == null ? other.getUsername() == null : this.getUsername().equals(other.getUsername()))
-            && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()))
+            && (this.getLoginPwd() == null ? other.getLoginPwd() == null : this.getLoginPwd().equals(other.getLoginPwd()))
             && (this.getUserStatus() == null ? other.getUserStatus() == null : this.getUserStatus().equals(other.getUserStatus()));
     }
 
@@ -105,7 +105,7 @@ public class User implements Serializable {
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
         result = prime * result + ((getUsername() == null) ? 0 : getUsername().hashCode());
-        result = prime * result + ((getPassword() == null) ? 0 : getPassword().hashCode());
+        result = prime * result + ((getLoginPwd() == null) ? 0 : getLoginPwd().hashCode());
         result = prime * result + ((getUserStatus() == null) ? 0 : getUserStatus().hashCode());
         return result;
     }

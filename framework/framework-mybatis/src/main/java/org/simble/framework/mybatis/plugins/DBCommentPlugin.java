@@ -16,14 +16,6 @@ public class DBCommentPlugin extends PluginAdapter {
     }
 
     @Override
-    public boolean modelBaseRecordClassGenerated(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
-        topLevelClass.addFileCommentLine("/*");
-        topLevelClass.addFileCommentLine(" * ©2016 Rick Qian. some rights reserved.");
-        topLevelClass.addFileCommentLine(" */");
-        return true;
-    }
-
-    @Override
     public boolean modelFieldGenerated(Field field, TopLevelClass topLevelClass, IntrospectedColumn introspectedColumn,
                                        IntrospectedTable introspectedTable, ModelClassType modelClassType) {
         generateFieldExplain(field, introspectedColumn);

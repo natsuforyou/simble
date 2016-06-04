@@ -4,7 +4,7 @@
 <generatorConfiguration>
     <!-- 驱动程序 -->
     <classPathEntry
-            location="/home/jiaxin/.gradle/caches/modules-2/files-2.1/mysql/mysql-connector-java/5.1.38/dbbd7cd309ce167ec8367de4e41c63c2c8593cc5/mysql-connector-java-5.1.38.jar"/>
+            location="/home/rick/.gradle/caches/modules-2/files-2.1/mysql/mysql-connector-java/5.1.38/dbbd7cd309ce167ec8367de4e41c63c2c8593cc5/mysql-connector-java-5.1.38.jar"/>
 
     <context id="context2" targetRuntime="MyBatis3">
 
@@ -24,7 +24,7 @@
         <!-- 数据库链接 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
                         connectionURL="jdbc:mysql://127.0.0.1:3306/simble" userId="member_server"
-                        password="Abc123"/>
+                        password="Abc12345"/>
 
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
@@ -32,20 +32,20 @@
 
         <!-- java entity生成位置 -->
         <javaModelGenerator targetPackage="org.simble.member.dao.po"
-                            targetProject="/home/jiaxin/Dev/simple-soa-website/member/member-dao/src/main/java">
+                            targetProject="/home/rick/dev/simble/member/member-dao/src/main/java">
             <property name="enableSubPackages" value="false"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <!-- mapper xml配置文件生成位置 -->
         <sqlMapGenerator targetPackage="mybatis.mapper.gen"
-                         targetProject="/home/jiaxin/Dev/simple-soa-website/member/member-dao/src/main/resources">
+                         targetProject="/home/rick/dev/simble/member/member-dao/src/main/resources">
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
 
         <!-- mapper 接口生成位置 -->
         <javaClientGenerator targetPackage="org.simble.member.dao.mapper.gen"
-                             targetProject="/home/jiaxin/Dev/simple-soa-website/member/member-dao/src/main/java"
+                             targetProject="/home/rick/dev/simble/member/member-dao/src/main/java"
                              type="XMLMAPPER">
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
