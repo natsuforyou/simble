@@ -10,7 +10,7 @@
 
     <dubbo:protocol name="dubbo" host="${ip}" port="20881" serialization="kryo"/>
 
-    <dubbo:registry protocol="zookeeper" address="${connectionString}" file="/data/programData/dubbo/cache/${app.name}.cache"/>
+    <dubbo:registry protocol="zookeeper" address="${connectionString}" file="/data/appData/dubbo/cache/${app.name}.cache"/>
 
     <dubbo:provider threads="150" executes="100" accesslog="true" filter="-exception"/>
 

@@ -27,7 +27,7 @@ public class DubboBaseConfig {
         RegistryConfig registryConfig = new RegistryConfig();
         registryConfig.setProtocol("zookeeper");
         registryConfig.setAddress(placeholderConfigurer.getProperty("connectionString"));
-        registryConfig.setFile("/data/programData/dubbo/cache/" + placeholderConfigurer.getProperty("app.name") + ".cache");
+        registryConfig.setFile("/data/appData/dubbo/cache/" + placeholderConfigurer.getProperty("app.name") + ".cache");
         return registryConfig;
     }
 
