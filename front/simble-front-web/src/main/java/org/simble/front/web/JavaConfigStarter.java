@@ -8,11 +8,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 @EnableAutoConfiguration
-@Configuration
 @Import({ContextConfig.class, DubboConfig.class, AopConfig.class, ImportConfig.class})
 public class JavaConfigStarter implements EmbeddedServletContainerCustomizer {
 
