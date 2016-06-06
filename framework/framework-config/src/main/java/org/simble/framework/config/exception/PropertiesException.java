@@ -4,6 +4,14 @@ public class PropertiesException extends RuntimeException {
 
     private static final long serialVersionUID = 5483151718629846906L;
 
+    private PropertiesException() {
+        super();
+    }
+
+    private PropertiesException(String message) {
+        super(message);
+    }
+
     private PropertiesException(String message, Throwable cause) {
         super(message, cause);
     }

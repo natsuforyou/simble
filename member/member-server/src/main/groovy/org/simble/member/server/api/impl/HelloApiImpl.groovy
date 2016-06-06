@@ -16,4 +16,14 @@ class HelloApiImpl implements HelloApi {
     String sayHello() {
         helloService.sayHello()
     }
+
+    @Override
+    void testException() throws Exception {
+        helloService.testException()
+    }
+
+    @Override
+    void testCustomException() throws Exception {
+        helloService.testCustomException()
+    }
 }
