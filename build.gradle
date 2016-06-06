@@ -12,9 +12,9 @@ allprojects {
     targetCompatibility = '1.8'
 
     repositories {
-        mavenLocal()
         maven { url 'http://maven.oschina.net/content/groups/public/' }
         mavenCentral()
+        mavenLocal()
     }
 
     dependencies {
