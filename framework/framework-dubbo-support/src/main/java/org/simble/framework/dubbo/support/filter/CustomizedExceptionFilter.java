@@ -5,7 +5,6 @@ import com.alibaba.dubbo.common.extension.Activate;
 import com.alibaba.dubbo.common.logger.Logger;
 import com.alibaba.dubbo.common.logger.LoggerFactory;
 import com.alibaba.dubbo.common.utils.ReflectUtils;
-import com.alibaba.dubbo.common.utils.StringUtils;
 import com.alibaba.dubbo.rpc.*;
 import com.alibaba.dubbo.rpc.service.GenericService;
 
@@ -30,6 +29,8 @@ public class CustomizedExceptionFilter implements Filter {
             if (result.hasException() && GenericService.class != invoker.getInterface()) {
                 try {
                     Throwable exception = result.getException();
+
+                    fillInStackTrace(exception);
 
                     // 如果是checked异常，直接抛出
                     if (! (exception instanceof RuntimeException) && (exception instanceof Exception)) {
@@ -70,7 +71,7 @@ public class CustomizedExceptionFilter implements Filter {
                     }
 
                     // 否则，包装成RuntimeException抛给客户端
-                    return new RpcResult(new RuntimeException(StringUtils.toString(exception)));
+                    return result;
                 } catch (Throwable e) {
                     logger.warn("Fail to ExceptionFilter when called by " + RpcContext.getContext().getRemoteHost()
                             + ". service: " + invoker.getInterface().getName() + ", method: " + invocation.getMethodName()
@@ -85,6 +86,11 @@ public class CustomizedExceptionFilter implements Filter {
                     + ", exception: " + e.getClass().getName() + ": " + e.getMessage(), e);
             throw e;
         }
+    }
+
+    //将异常原生的堆栈获取出来
+    private void fillInStackTrace(Throwable exception) {
+        exception.setStackTrace(exception.getStackTrace());
     }
 
 }
