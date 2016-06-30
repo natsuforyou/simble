@@ -2,26 +2,17 @@ package org.simble.framework.dubbo.support.filter;
 
 import com.alibaba.dubbo.common.Constants;
 import com.alibaba.dubbo.common.extension.Activate;
-import com.alibaba.dubbo.common.logger.Logger;
-import com.alibaba.dubbo.common.logger.LoggerFactory;
-import com.alibaba.dubbo.common.utils.ReflectUtils;
 import com.alibaba.dubbo.rpc.*;
 import com.alibaba.dubbo.rpc.service.GenericService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Method;
 
 @Activate(group = Constants.PROVIDER)
 public class CustomizedExceptionFilter implements Filter {
 
-    private final Logger logger;
-
-    public CustomizedExceptionFilter() {
-        this(LoggerFactory.getLogger(CustomizedExceptionFilter.class));
-    }
-
-    public CustomizedExceptionFilter(Logger logger) {
-        this.logger = logger;
-    }
+    private static final Logger logger = LoggerFactory.getLogger(CustomizedExceptionFilter.class);
 
     public Result invoke(Invoker<?> invoker, Invocation invocation) throws RpcException {
         try {
@@ -33,7 +24,7 @@ public class CustomizedExceptionFilter implements Filter {
                     fillInStackTrace(exception);
 
                     // 如果是checked异常，直接抛出
-                    if (! (exception instanceof RuntimeException) && (exception instanceof Exception)) {
+                    if (!(exception instanceof RuntimeException) && (exception instanceof Exception)) {
                         return result;
                     }
                     // 在方法签名上有声明，直接抛出
@@ -54,23 +45,6 @@ public class CustomizedExceptionFilter implements Filter {
                             + ". service: " + invoker.getInterface().getName() + ", method: " + invocation.getMethodName()
                             + ", exception: " + exception.getClass().getName() + ": " + exception.getMessage(), exception);
 
-                    // 异常类和接口类在同一jar包里，直接抛出
-                    String serviceFile = ReflectUtils.getCodeBase(invoker.getInterface());
-                    String exceptionFile = ReflectUtils.getCodeBase(exception.getClass());
-                    if (serviceFile == null || exceptionFile == null || serviceFile.equals(exceptionFile)){
-                        return result;
-                    }
-                    // 是JDK自带的异常，直接抛出
-                    String className = exception.getClass().getName();
-                    if (className.startsWith("java.") || className.startsWith("javax.")) {
-                        return result;
-                    }
-                    // 是Dubbo本身的异常，直接抛出
-                    if (exception instanceof RpcException) {
-                        return result;
-                    }
-
-                    // 否则，包装成RuntimeException抛给客户端
                     return result;
                 } catch (Throwable e) {
                     logger.warn("Fail to ExceptionFilter when called by " + RpcContext.getContext().getRemoteHost()
