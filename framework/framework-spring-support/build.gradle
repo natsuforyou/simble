@@ -1,7 +1,11 @@
 dependencies{
-    compile libraries.spring_context_support
-    compile libraries.spring_jdbc
-    compile libraries.spring_webmvc
+    compile (libraries.spring_context_support) {
+        exclude group: 'commons-logging', module: 'commons-logging'
+    }
+    compile (libraries.spring_jdbc) {
+        exclude group: 'commons-logging', module: 'commons-logging'
+    }
+
     compile libraries.aspectj
     compile libraries.cglib
     compile project(":framework:framework-logger")

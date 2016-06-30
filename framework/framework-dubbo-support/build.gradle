@@ -1,6 +1,10 @@
 dependencies{
     compile libraries.dubbo
     compile libraries.javassist
+    compile (libraries.kryo) {
+        exclude group: 'com.esotericsoftware', module: 'reflectasm'
+        exclude group: 'com.esotericsoftware', module: 'minlog'
+    }
     compile libraries.kryo_serializers
     compile project(":framework:framework-config")
 }

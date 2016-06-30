@@ -1,5 +1,8 @@
 dependencies{
     compile (libraries.zkclient) {
+        exclude group: 'org.slf4j', module: 'slf4j-api'
+        exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+        exclude group: 'log4j', module: 'log4j'
         exclude group: 'jline', module: 'jline'
     }
     compile project(":framework:framework-spring-support")
