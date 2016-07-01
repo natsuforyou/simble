@@ -1,12 +1,4 @@
 dependencies {
     compile libraries.servlet_api
-
-    compile (libraries.spring_boot_starter_web) {
-        exclude group: 'ch.qos.logback', module: 'logback-classic'
-        exclude group: 'org.slf4j', module: 'jcl-over-slf4j'
-        exclude group: 'org.slf4j', module: 'jul-to-slf4j'
-        exclude group: 'org.slf4j', module: 'log4j-over-slf4j'
-        exclude group: 'commons-logging', module: 'commons-logging'
-    }
     compile project(':framework:framework-dubbo-support')
 }

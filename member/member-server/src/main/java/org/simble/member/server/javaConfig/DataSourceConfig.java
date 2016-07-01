@@ -21,7 +21,7 @@ public class DataSourceConfig {
     @Bean(destroyMethod = "close")
     public ComboPooledDataSource dataSource() throws PropertyVetoException {
         ComboPooledDataSource dataSource = new ComboPooledDataSource();
-        dataSource.setDataSourceName("test-dataSource");
+        dataSource.setDataSourceName("member-dataSource");
         dataSource.setDriverClass(placeholderConfigurer.getProperty("jdbc.driver"));
         dataSource.setJdbcUrl(placeholderConfigurer.getProperty("jdbc.url"));
         dataSource.setUser(placeholderConfigurer.getProperty("jdbc.username"));

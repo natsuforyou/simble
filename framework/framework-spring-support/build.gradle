@@ -1,10 +1,7 @@
 dependencies{
-    compile (libraries.spring_context_support) {
-        exclude group: 'commons-logging', module: 'commons-logging'
-    }
-    compile (libraries.spring_jdbc) {
-        exclude group: 'commons-logging', module: 'commons-logging'
-    }
+    compile libraries.spring_context_support
+    compile libraries.spring_jdbc
+    compile libraries.spring_boot_starter_web
 
     compile libraries.aspectj
     compile libraries.cglib

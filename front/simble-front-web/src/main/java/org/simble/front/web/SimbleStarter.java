@@ -12,10 +12,10 @@ import org.springframework.context.annotation.Import;
 
 @EnableAutoConfiguration
 @Import({ContextConfig.class, DubboConfig.class, AopConfig.class, ImportConfig.class})
-public class JavaConfigStarter implements EmbeddedServletContainerCustomizer {
+public class SimbleStarter implements EmbeddedServletContainerCustomizer {
 
     public static void main(String[] args) {
-        SpringApplication.run(JavaConfigStarter.class, args);
+        SpringApplication.run(SimbleStarter.class, args);
     }
 
     @Override
