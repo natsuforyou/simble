@@ -15,7 +15,7 @@ import java.util.List;
 public class ContextConfig {
 
     @Bean
-    public CustomPropertyPlaceholderConfigurer propertyPlaceholderConfigurer() {
+    public static CustomPropertyPlaceholderConfigurer propertyPlaceholderConfigurer() {
         CustomPropertyPlaceholderConfigurer propertyPlaceholderConfigurer = new CustomPropertyPlaceholderConfigurer();
         List<String> propertiesFiles = new ArrayList<>();
         propertiesFiles.add("G:properties/zkService.properties");
